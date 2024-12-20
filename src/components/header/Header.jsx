@@ -20,8 +20,8 @@ function ShoppingCart() {
 
 function Header() {
   return (
-    <header className='container flex flex-col w-full  h-4 fixed top-0 right-0 left-0 bg-white'>
-      <div className="main container flex flex-row w-full px-5 py-4 items-center justify-between bg-white">
+    <header className='container flex flex-col w-full  h-40 relative top-0 right-0 left-0 bg-white'>
+      <div className="main container flex flex-row w-full px-5 py-4 items-center justify-between bg-white ">
         <p>hello</p>
         <Logo />
     <ShoppingCart />
