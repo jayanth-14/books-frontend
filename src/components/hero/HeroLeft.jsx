@@ -1,3 +1,6 @@
+import ButtonSecondary from "../buttons/ButtonSecondary"
+import ButtonPrimary from "../buttons/buttonPrimary"
+
 function HeroLeftText() {
   return (
     <>
@@ -14,13 +17,10 @@ function HeroLeftText() {
 
 function HeroLeftButtons() {
   return (
-    <div>
-      <button className="btn-primary">
-        Explore Now
-      </button>
-      <button className="btn-secondary">
-        Learn More
-      </button>
+    <div className="flex flex-row gap-3">
+      <ButtonPrimary text="Explore Now"/>
+      <ButtonSecondary text="Learn More" />
+      
     </div>
   )
 }

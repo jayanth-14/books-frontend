@@ -11,8 +11,8 @@ function Logo() {
 
 function ShoppingCart() {
   return (
-    <div className="group px-16 py-4 border-2 hover:border-greenTwo cursor-pointer">
-      <FaShoppingCart className="text-2xl group-hover:text-greenTwo" />
+    <div className="group px-16 py-4 border-2 hover:border-blueTwo cursor-pointer">
+      <FaShoppingCart className="text-2xl group-hover:text-blueTwo" />
     </div>
   )
 }
@@ -20,7 +20,7 @@ function ShoppingCart() {
 
 function Header() {
   return (
-    <header className='container flex flex-col w-full  h-40 relative top-0 right-0 left-0 bg-white'>
+    <header className='container flex flex-col w-full  h-40 sticky z-50 shadow-lg top-0 right-0 left-0 bg-white'>
       <div className="main container flex flex-row w-full px-5 py-4 items-center justify-between bg-white ">
         <p>hello</p>
         <Logo />

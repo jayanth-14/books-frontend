@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
+import booksData from './data/data';
+import BookList from './components/books/booklist';
 
 function Agree(params) {
 
@@ -16,6 +18,7 @@ function App() {
     <>
     <Header></Header>
     <Hero />
+    <BookList data={booksData} />
     </>
   )
 }

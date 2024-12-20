@@ -10,9 +10,9 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-blueThree hover:bg-blueTwo text-white font-semibold py-3 px-6 rounded-lg mr-4;
+    @apply bg-blueThree hover:bg-blueTwo text-white font-semibold py-3 px-6 rounded-lg;
   }
   .btn-secondary {
-    @apply border-2 border-white hover:bg-white hover:text-blueThree text-white font-semibold py-3 px-6 rounded-lg
+    @apply border-2 border-white hover:bg-white hover:text-blueThree text-white font-semibold py-3 px-6 rounded-lg;
   }
 }
