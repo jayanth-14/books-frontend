@@ -1,24 +1,15 @@
-import { useState } from 'react'
+import { Route, Routes } from 'react-router';
 import Header from './components/header/Header';
-import Hero from './components/hero/Hero';
-import booksData from './data/data';
-import BookList from './components/books/booklist';
-
-function Agree(params) {
-
-  return (
-    <Header />
-  )
-}
+import Home from './pages/Home';
 
 function App() {
-  console.log("app reload");
   
   return (
     <>
     <Header></Header>
-    <Hero />
-    <BookList data={booksData} />
+    <Routes>
+      <Route path="/" element={<Home />}></Route>
+    </Routes>
     </>
   )
 }
