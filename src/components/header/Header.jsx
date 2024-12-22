@@ -1,5 +1,8 @@
 import { FaFacebook, FaInstagram, FaShoppingCart, FaTwitter, FaYoutube } from "react-icons/fa"
 import Navbar from "./Navbar"
+import { useContext } from "react"
+import { Context } from "../../data/states"
+import UserButtons from "./UserButtons"
 
 function Logo() {
   return (
@@ -30,12 +33,13 @@ function SocialImages() {
 
 
 function Header() {
+  const {isLogined} = useContext(Context)
   return (
     <header className='flex flex-col w-full  h-32 sticky z-50 shadow-lg top-0 right-0 left-0 bg-white '>
       <div className="main container flex flex-row w-full px-5 py-2 items-center justify-between bg-white ">
         <SocialImages />
         <Logo />
-    <ShoppingCart />
+        {(isLogined) ? <ShoppingCart /> : <UserButtons />}
       </div>
       <Navbar />
     </header>

@@ -37,6 +37,9 @@ function Navbar() {
         <li className='text-lg cursor-pointer hover:text-white '>
           <NavLink to="/profile">Profile</NavLink>
         </li>
+        <li className='text-lg cursor-pointer hover:text-white '>
+          <NavLink to="/cart">Cart</NavLink>
+        </li>
       </ul>
       <SearchBar />
     </nav>

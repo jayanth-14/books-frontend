@@ -18,8 +18,8 @@ function HeroLeftText() {
 function HeroLeftButtons() {
   return (
     <div className="flex flex-row gap-3">
-      <ButtonPrimary text="Explore Now"/>
-      <ButtonSecondary text="Learn More" />
+      <ButtonPrimary> Explore Now</ButtonPrimary>
+      <ButtonSecondary > Learn More</ButtonSecondary>
       
     </div>
   )

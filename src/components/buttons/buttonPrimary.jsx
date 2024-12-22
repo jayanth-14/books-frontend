@@ -3,7 +3,7 @@ import React from 'react'
 function ButtonPrimary(params) {
   return (
     <button className="btn-primary">
-      {params.text}
+      {params.children}
     </button>
   )
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import ButtonPrimary from '../buttons/buttonPrimary'
+import { Link } from 'react-router'
+
 
 function BookList(params) {
   return (
@@ -9,11 +11,13 @@ function BookList(params) {
         <div key={index} className="rounded-lg px-5 py-3 shadow-lg flex flex-row gap-5 cursor-pointer relative hover:shadow-2xl">
           <img src={`./images/dummy_data/book_${index+1}.jpg`} alt="" className='w-32 h-44 rounded-lg'/>
           <div className="py-2">
-            <h1 className='text-lg from-neutral-900 capitalize'>{book.name}</h1>
+            <h1 className='text-lg from-neutral-900 capitalize'>{book.title}</h1>
             <p className="text-md font-extralight"> by {book.author}</p>
             <p className="text-md text-blueThree">$ {book.price}</p>
             <div className="absolute bottom-3">
-            <ButtonPrimary text="View Details" />
+              <Link to={`/book/${book.id}`}>
+            <ButtonPrimary  > View Details</ButtonPrimary>
+              </Link>
             </div>
           </div>
         </div> )
