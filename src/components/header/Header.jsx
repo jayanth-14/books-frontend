@@ -31,7 +31,7 @@ function SocialImages() {
 
 function Header() {
   return (
-    <header className='container flex flex-col w-full  h-32 sticky z-50 shadow-lg top-0 right-0 left-0 bg-white'>
+    <header className='flex flex-col w-full  h-32 sticky z-50 shadow-lg top-0 right-0 left-0 bg-white'>
       <div className="main container flex flex-row w-full px-5 py-2 items-center justify-between bg-white ">
         <SocialImages />
         <Logo />
