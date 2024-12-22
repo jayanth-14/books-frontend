@@ -6,7 +6,7 @@ function Cart() {
   const { cart } = useContext(Context)
 
   return (
-<section className='mb-20 px-24 py-16 flex flex-col items-center'>
+<section className='mb-20  w-full py-16 flex flex-col items-center'>
   <h1 className="text-2xl">Your Cart</h1>
   <BookList data={cart} />
 </section>

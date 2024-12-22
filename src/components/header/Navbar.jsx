@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaBars, FaSearch } from 'react-icons/fa';
 import { NavLink } from 'react-router';
+import { Context } from '../../data/states';
 
 function Categories() {
   return (
@@ -20,13 +21,29 @@ function SearchBar() {
   )
 }
 
+function UserLinks() {
+  const { isLogined } = useContext(Context)
+  const links = isLogined && <>
+    <li className='text-lg cursor-pointer hover:text-white '>
+      <NavLink to="/profile">Profile</NavLink>
+    </li>
+    <li className='text-lg cursor-pointer hover:text-white '>
+      <NavLink to="/cart">Cart</NavLink>
+    </li>
+  </>
+  return (
+    links
+  )
+}
+
 function Navbar() {
+
   return (
     <nav className='container flex flex-row justify-between items-center  w-full bg-blueTwo px-20 py-3'>
       {/* <Categories /> */}
       <ul className='flex flex-row items-center justify-center gap-8'>
         <li className='text-lg cursor-pointer hover:text-white '>
-          <NavLink to="/" className={({ isActive }) => (isActive && "font-semibold text-white" )}>Home</NavLink>
+          <NavLink to="/" className={({ isActive }) => (isActive && "font-semibold text-white")}>Home</NavLink>
         </li>
         <li className='text-lg cursor-pointer hover:text-white '>
           <NavLink to="/explore">Explore</NavLink>
@@ -34,12 +51,9 @@ function Navbar() {
         <li className='text-lg cursor-pointer hover:text-white '>
           <NavLink to="/search">Search</NavLink>
         </li>
-        <li className='text-lg cursor-pointer hover:text-white '>
-          <NavLink to="/profile">Profile</NavLink>
-        </li>
-        <li className='text-lg cursor-pointer hover:text-white '>
-          <NavLink to="/cart">Cart</NavLink>
-        </li>
+        <UserLinks />
+
+
       </ul>
       <SearchBar />
     </nav>
