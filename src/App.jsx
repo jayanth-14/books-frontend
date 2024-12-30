@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router';
 import Header from './components/header/Header';
 import Home from './pages/Home';
 import Footer from './components/footer/Footer';
-import Login from './pages/login';
+import Login from './pages/Login';
 import SignIn from './pages/SignIn';
 import StatesProvider from './data/states';
 import Profile from './pages/Profile';
