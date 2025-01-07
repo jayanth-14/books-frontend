@@ -1,0 +1,11 @@
+id,created_at,address,city,district,state,country,pin_code,user_id
+a48c3633-93ba-45d4-b168-7861c1a56779,2024-12-25 10:00:00,"10-1-20, Dwaraka Nagar",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,53006,810303d6-1eba-479b-81ab-00dc1e58547f
+7ab97a07-d664-4aa3-9c0b-33005cd38acf,2024-12-25 10:10:00,"10-2-20, Gopalapatnam",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,53007,0d847685-d9ed-4674-85d8-dc0a5d30a7b8
+f07db1b9-d88a-4b23-a2fb-e053efb77ecc,2024-12-25 10:20:00,"10-3-20, Madhurawada",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,53008,6dae6479-03fb-40c7-b3f5-e98f2fbf9176
+eef881ee-946f-4cdd-87d3-701290b00a37,2024-12-25 10:30:00,"10-4-20, Seethammadhara",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,53009,ca158b81-654a-447b-884c-20fcbfcbf43a
+a991f3b4-b914-4d29-8948-4692d3a64f88,2024-12-25 10:40:00,"10-5-20, Gajuwaka",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,530010,a570ba21-7424-4b73-aac3-52447944e133
+f5969149-17a2-4e2c-acb0-f086ef35844c,2024-12-25 10:50:00,"10-6-20, Old Gajuwaka",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,530011,26bee57d-b03e-4a78-abe7-f80c8109fccd
+f9f1022a-fe32-4311-ab68-e12e449fcb69,2024-12-25 11:00:00,"10-7-20, Pendurthi",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,530012,4c3a79a5-b26e-4c4e-93f9-7059fec0817e
+864c81f6-ceeb-436b-b6e0-848eb1f6bb0e,2024-12-25 11:10:00,"10-8-20, Simhachalam",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,530013,4a82b450-de35-4a7f-931e-5b9d366e135a
+827c5403-4280-411e-b16f-6a1ecc0377d8,2024-12-25 11:20:00,"10-9-20, Kancharapalem",Visakhapatnam,Visakhapatnam,Andhra Pradesh,India,530014,4b47cbc4-bffd-49dd-8f5b-53d522263c1a
+2fb83e60-5ac8-4cd5-9cfb-0388bb068ac0,2024-12-25 11:30:00,"10-10-20, Anakapalle",Anakapalle,Visakhapatnam,Andhra Pradesh,India,531001,e8805566-3a2b-45d6-9e3c-c01f7ca69b70

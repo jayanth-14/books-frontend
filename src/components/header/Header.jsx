@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import { useContext } from "react"
 import { Context } from "../../data/states"
 import UserButtons from "./UserButtons"
+import { Link } from "react-router"
 
 function Logo() {
   return (
@@ -14,9 +15,11 @@ function Logo() {
 
 function ShoppingCart() {
   return (
+    <Link to={"/cart"}>
     <div className="group px-12 py-2 border-2 hover:border-blueTwo cursor-pointer">
       <FaShoppingCart className="text-2xl group-hover:text-blueTwo" />
     </div>
+    </Link>
   )
 }
 

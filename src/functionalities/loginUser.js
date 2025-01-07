@@ -1,9 +1,22 @@
-export default function LoginUser(email, password, usersList, setUser, setIslogined) {
-  usersList.forEach(user => {
-    if (user.email === email && user.password === password) {
-    setUser(user);
-    setIslogined(true)
-    console.log(user);
+export default async function LoginUser(email, password, setUser, setIsLogined) {
+  try {
+    
+    const response = await fetch("http://localhost:5000/signin",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({email, password})
+    })
+    if (!response.ok) {
+      return;
     }
-  });
+    const data = await response.json();
+    setUser(data.data);
+    setIsLogined(true);
+  } catch (error) {
+    console.log("error at login : ", error);
+    
+  }
 };

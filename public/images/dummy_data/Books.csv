@@ -1,0 +1,41 @@
+id,created_at,title,author,price,quantity,user_id,description,condition,category
+b0bb054a-2696-494e-9dda-ade3ea0d3f9d,2024-12-25 10:00:00,Engineering Drawing (Diploma),K.L. Narayana,200,1,810303d6-1eba-479b-81ab-00dc1e58547f,Description of engineering drawing (diploma),Good,Textbook
+ca512279-44bb-4b09-8037-a94a81db2e67,2024-12-25 10:05:00,Strength of Materials,R.K. Bansal,250,2,0d847685-d9ed-4674-85d8-dc0a5d30a7b8,Description of strength of materials,Fair,Reference
+597ed700-3600-4059-93b4-4e1cedcf58ed,2024-12-25 10:10:00,Applied Mechanics,S.S. Bhavikatti,300,3,6dae6479-03fb-40c7-b3f5-e98f2fbf9176,Description of applied mechanics,Excellent,Guide
+bc670817-9cde-41f4-a4cd-eaa56c3d011b,2024-12-25 10:15:00,Machine Design,P.N. Rao,350,4,ca158b81-654a-447b-884c-20fcbfcbf43a,Description of machine design,Poor,Handbook
+1fb2899e-e14a-48ff-8d06-87463b3522d3,2024-12-25 10:20:00,Thermal Engineering,R.S. Khurmi,400,5,a570ba21-7424-4b73-aac3-52447944e133,Description of thermal engineering,Good,Textbook
+880880b4-60ed-42b2-858e-6a935de1ab09,2024-12-25 10:25:00,Electrical Circuits,K.L. Narayana,450,1,26bee57d-b03e-4a78-abe7-f80c8109fccd,Description of electrical circuits,Fair,Reference
+302d8cca-e8fe-4047-8f06-e915f2e1c2d0,2024-12-25 10:30:00,Electronic Devices,R.K. Bansal,500,2,4c3a79a5-b26e-4c4e-93f9-7059fec0817e,Description of electronic devices,Excellent,Guide
+aa87b7c9-0463-4883-be8f-d8ae99ca8dcc,2024-12-25 10:35:00,Programming in C,S.S. Bhavikatti,550,3,4a82b450-de35-4a7f-931e-5b9d366e135a,Description of programming in c,Poor,Handbook
+a2b54b1f-e9bb-416c-bdd6-acc54d9d2ef8,2024-12-25 10:40:00,Data Structures,P.N. Rao,600,4,4b47cbc4-bffd-49dd-8f5b-53d522263c1a,Description of data structures,Good,Textbook
+e7249ece-1fe0-4c13-84d0-f083aa27b150,2024-12-25 10:45:00,Database Management Systems,R.S. Khurmi,650,5,e8805566-3a2b-45d6-9e3c-c01f7ca69b70,Description of database management systems,Fair,Reference
+35fb784f-a3dc-4e2a-898a-bc3569a020d6,2024-12-25 10:50:00,Software Engineering,K.L. Narayana,700,1,810303d6-1eba-479b-81ab-00dc1e58547f,Description of software engineering,Excellent,Guide
+dbee4423-f48d-417e-804e-c7b782c37858,2024-12-25 10:55:00,Computer Networks,R.K. Bansal,750,2,0d847685-d9ed-4674-85d8-dc0a5d30a7b8,Description of computer networks,Poor,Handbook
+1c3671fc-d08e-40b2-b2fe-b1583e696c69,2024-12-25 11:00:00,Operating Systems,S.S. Bhavikatti,800,3,6dae6479-03fb-40c7-b3f5-e98f2fbf9176,Description of operating systems,Good,Textbook
+e866eb7d-5c53-4f75-aebd-250f3f1616d7,2024-12-25 11:05:00,Fluid Mechanics,P.N. Rao,850,4,ca158b81-654a-447b-884c-20fcbfcbf43a,Description of fluid mechanics,Fair,Reference
+e4c76954-5b99-4d08-bfab-69b70ffb0b77,2024-12-25 11:10:00,Concrete Technology,R.S. Khurmi,900,5,a570ba21-7424-4b73-aac3-52447944e133,Description of concrete technology,Excellent,Guide
+fc966cea-b447-4c23-a767-d5bf9d26a416,2024-12-25 11:15:00,Surveying,K.L. Narayana,950,1,26bee57d-b03e-4a78-abe7-f80c8109fccd,Description of surveying,Poor,Handbook
+483da5b5-dbb3-4e1d-9f23-f7bb48df49fe,2024-12-25 11:20:00,Hydraulics,R.K. Bansal,1000,2,4c3a79a5-b26e-4c4e-93f9-7059fec0817e,Description of hydraulics,Good,Textbook
+6e1badcf-b2df-4f66-ac9e-f4a787dff135,2024-12-25 11:25:00,Environmental Studies,S.S. Bhavikatti,1050,3,4a82b450-de35-4a7f-931e-5b9d366e135a,Description of environmental studies,Fair,Reference
+785024e7-aa17-4aeb-b322-f66ac60e0a9c,2024-12-25 11:30:00,Construction Planning,P.N. Rao,1100,4,4b47cbc4-bffd-49dd-8f5b-53d522263c1a,Description of construction planning,Excellent,Guide
+453d9a5c-34c2-421d-807f-8b28d9a3ef43,2024-12-25 11:35:00,Structural Analysis,R.S. Khurmi,1150,5,e8805566-3a2b-45d6-9e3c-c01f7ca69b70,Description of structural analysis,Poor,Handbook
+17c61f40-3d05-46bf-a7ba-2819f964df78,2024-12-25 11:40:00,Heat Transfer,K.L. Narayana,1200,1,810303d6-1eba-479b-81ab-00dc1e58547f,Description of heat transfer,Good,Textbook
+59747223-013b-4e71-b4c5-107f4ed4e179,2024-12-25 11:45:00,IC Engines,R.K. Bansal,1250,2,0d847685-d9ed-4674-85d8-dc0a5d30a7b8,Description of ic engines,Fair,Reference
+fe3dd930-b228-468a-9bee-9a2787d2148e,2024-12-25 11:50:00,Power Systems,S.S. Bhavikatti,1300,3,6dae6479-03fb-40c7-b3f5-e98f2fbf9176,Description of power systems,Excellent,Guide
+15dce332-4b64-4bc1-81fc-f85451b5ef8f,2024-12-25 11:55:00,Control Systems,P.N. Rao,1350,4,ca158b81-654a-447b-884c-20fcbfcbf43a,Description of control systems,Poor,Handbook
+e131c774-25a5-40f5-9c07-3577af333829,2024-12-25 12:00:00,Microprocessors,R.S. Khurmi,1400,5,a570ba21-7424-4b73-aac3-52447944e133,Description of microprocessors,Good,Textbook
+5e7f6663-77cc-4e6a-a175-2b2218ea8bba,2024-12-25 12:05:00,VLSI Design,K.L. Narayana,1450,1,26bee57d-b03e-4a78-abe7-f80c8109fccd,Description of vlsi design,Fair,Reference
+2fd6f15f-6521-45cd-9213-466c733255f8,2024-12-25 12:10:00,Embedded Systems,R.K. Bansal,1500,2,4c3a79a5-b26e-4c4e-93f9-7059fec0817e,Description of embedded systems,Excellent,Guide
+d1c3517e-7796-4b73-84fe-0e775280d759,2024-12-25 12:15:00,Digital Signal Processing,S.S. Bhavikatti,1550,3,4a82b450-de35-4a7f-931e-5b9d366e135a,Description of digital signal processing,Poor,Handbook
+7d921dee-2a71-48dd-9bf3-bf191093623e,2024-12-25 12:20:00,Computer Architecture,P.N. Rao,1600,4,4b47cbc4-bffd-49dd-8f5b-53d522263c1a,Description of computer architecture,Good,Textbook
+89fa8b93-88b1-451d-afec-91842f9fca48,2024-12-25 12:25:00,Artificial Intelligence,R.S. Khurmi,1650,5,e8805566-3a2b-45d6-9e3c-c01f7ca69b70,Description of artificial intelligence,Fair,Reference
+67c675fe-8509-400a-80c8-4a057d3531cc,2024-12-25 12:30:00,Python Programming,K.L. Narayana,1700,1,810303d6-1eba-479b-81ab-00dc1e58547f,Description of python programming,Excellent,Guide
+df060c36-428e-455c-a50e-4a0ef9a7c3a9,2024-12-25 12:35:00,Java Programming,R.K. Bansal,1750,2,0d847685-d9ed-4674-85d8-dc0a5d30a7b8,Description of java programming,Poor,Handbook
+e745fc65-1d02-47fe-a837-ec31840e7ed9,2024-12-25 12:40:00,Web Development,S.S. Bhavikatti,1800,3,6dae6479-03fb-40c7-b3f5-e98f2fbf9176,Description of web development,Good,Textbook
+60df6ef7-8b1c-43c4-9b35-a40329e5011f,2024-12-25 12:45:00,Mobile App Development,P.N. Rao,1850,4,ca158b81-654a-447b-884c-20fcbfcbf43a,Description of mobile app development,Fair,Reference
+416dfd5a-6b01-474d-b6ce-45ca774597e6,2024-12-25 12:50:00,Cryptography,R.S. Khurmi,1900,5,a570ba21-7424-4b73-aac3-52447944e133,Description of cryptography,Excellent,Guide
+d6e575ca-02b2-487c-866c-e94704c8e0da,2024-12-25 12:55:00,Data Analytics,K.L. Narayana,1950,1,26bee57d-b03e-4a78-abe7-f80c8109fccd,Description of data analytics,Poor,Handbook
+e1b36398-f919-40a5-ba6d-0a1daf2675aa,2024-12-25 13:00:00,Machine Learning,R.K. Bansal,2000,2,4c3a79a5-b26e-4c4e-93f9-7059fec0817e,Description of machine learning,Good,Textbook
+8e736767-6c8a-4c45-9b8d-51244585f8a7,2024-12-25 13:05:00,Big Data,S.S. Bhavikatti,2050,3,4a82b450-de35-4a7f-931e-5b9d366e135a,Description of big data,Fair,Reference
+dfb0f97d-1ce5-4fae-b749-f10e7fdfc552,2024-12-25 13:10:00,Cloud Computing,P.N. Rao,2100,4,4b47cbc4-bffd-49dd-8f5b-53d522263c1a,Description of cloud computing,Excellent,Guide
+76ac7f56-f3e4-4ff4-ac8b-624dd26653a9,2024-12-25 13:15:00,Cyber Security,R.S. Khurmi,2150,5,e8805566-3a2b-45d6-9e3c-c01f7ca69b70,Description of cyber security,Poor,Handbook

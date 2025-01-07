@@ -5,6 +5,8 @@ import Cart from '../components/profile/Cart'
 
 function Profile() {
   const { user } = useContext(Context)
+  console.log(user);
+  
   return (
     <section className="profile px-24 mt-10">
       <div className="bg-white overflow-hidden shadow rounded-lg border">
@@ -20,7 +22,7 @@ function Profile() {
                     Full name
                 </dt>
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    {user.name}
+                    {user.Name}
                 </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
