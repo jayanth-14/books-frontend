@@ -10,6 +10,7 @@ import Book from './pages/Book';
 import Cart from './components/profile/Cart';
 import Search from './components/search/Search';
 import Explore from './pages/Explore';
+import Addbook from './components/form/Books/Addbook';
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
       <StatesProvider>
         <Header></Header>
         <Routes>
+        <Route path="/addbook" element={<Addbook />}></Route>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
