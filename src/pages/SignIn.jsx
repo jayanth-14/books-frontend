@@ -5,6 +5,7 @@ import FormNav from '../components/form/FormNav'
 import ButtonPrimary from '../components/buttons/buttonPrimary'
 import addUser from '../functionalities/addUser'
 import { Context } from '../data/states'
+import {useNavigate} from 'react-router'
 
 
 function SignIn() {
@@ -15,8 +16,9 @@ function SignIn() {
   const [address, setAddress] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordsMatch, setIsPasswordsMatch] = useState(false);
-  const { setUsers, users } = useContext(Context);
+  const { alert, setAlert } = useContext(Context);
 
+  const navigate = useNavigate();
   useEffect(() => {
     if (password === confirmPassword) {
       setIsPasswordsMatch(true);
@@ -27,7 +29,7 @@ function SignIn() {
 
   const handleSignUp = (event) => {
     event.preventDefault();
-    addUser(name, email, password, phone, address);
+    addUser(name, email, password, phone, address, setAlert, navigate);
   };
   return (
     <section className="login m-auto w-96 border-2 rounded-md p-4 flex flex-col gap-2">

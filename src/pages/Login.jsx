@@ -11,19 +11,19 @@ import LoginUser from '../functionalities/loginUser'
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isFormSubmited, setIsFormSubmitted] = useState(false);
-  const { setUser, islogined, setIsLogined } = useContext(Context);
+  const { setUser, isLogined, setIsLogined, setAlert } = useContext(Context);
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (islogined) {
-      navigate("/");
+    if (isLogined === true) {
+        navigate("/");
     }
-  }, [islogined])
+  }, [isLogined])
+
 
   const submitLogin = (event) => {
     event.preventDefault(); 
-    LoginUser(email.toLowerCase(), password, setUser, setIsLogined)
+    LoginUser(email.toLowerCase(), password, setUser, setIsLogined, setAlert);
   };
 
   return (

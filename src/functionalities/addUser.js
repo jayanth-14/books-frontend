@@ -1,5 +1,5 @@
 
-export default async function addUser(name, email, password, phone, address) {
+export default async function addUser(name, email, password, phone, address, setAlert, navigate) {
   try {
     let latitude = 0, longitude = 0;
     navigator.geolocation.getCurrentPosition((position) => {
@@ -16,6 +16,7 @@ export default async function addUser(name, email, password, phone, address) {
       profile_img: "",
       coordinates: [latitude, longitude],
       address: address
+      
     }
     const response = await fetch("http://localhost:5000/signup", {
       method: "POST",
@@ -25,10 +26,17 @@ export default async function addUser(name, email, password, phone, address) {
       },
       body: JSON.stringify(newUser)
     })
+    const data = await response.json();
+    console.log(data);
+    
     if (!response.ok) {
+      setAlert([{type: "error", message: data.error}]);
       return;
     }
-    const data = await response.json();
+    setAlert([{type: "success", message: "User added successfully, Redirecting to login page"}]);
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
     console.log(data);
   } catch (error) {
     console.log("error at login : ", error);

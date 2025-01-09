@@ -10,6 +10,7 @@ import Book from './pages/Book';
 import Cart from './components/profile/Cart';
 import Search from './components/search/Search';
 import Explore from './pages/Explore';
+import AlertContainer from './components/alerts/Alert';
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
     <div className='min-h-screen flex flex-col'>
       <StatesProvider>
         <Header></Header>
+        <AlertContainer></AlertContainer>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
