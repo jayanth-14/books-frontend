@@ -11,6 +11,7 @@ import Cart from './components/profile/Cart';
 import Search from './components/search/Search';
 import Explore from './pages/Explore';
 import AlertContainer from './components/alerts/Alert';
+import Addbook from './components/form/Books/Addbook';
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
         <Header></Header>
         <AlertContainer></AlertContainer>
         <Routes>
+        <Route path="/addbook" element={<Addbook />}></Route>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
