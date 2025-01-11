@@ -2,15 +2,22 @@ import React, { useState } from 'react'
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import SearchDropDown from './SearchDropDown';
+import ButtonPrimary from '../buttons/buttonPrimary';
 
 function SearchBar({ setResults, handler }) {
   const [query, setQuery] = useState("");
+  const [searchBy, setSearchBy] = useState("All");
+  const [category, setCategory] = useState("All");
+  const [condition, setCondition] = useState("All");
+  // const [year, setYear] = useState(new Date());
+
+
   const submitHandler = (event) => {
     event.preventDefault();
-    handler(query, setResults);
+    handler(query,searchBy, category, condition, setResults);
   }
   return (
-    // <form classNameName="flex flex-col md:flex-row gap-3" >
     <div className="m-10 w-screen max-w-screen-md">
 
       <div className="flex flex-col">
@@ -21,57 +28,25 @@ function SearchBar({ setResults, handler }) {
                 <circle cx="11" cy="11" r="8" className=""></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65" className=""></line>
               </svg>
-              <input type="name" name="search" className="h-12 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pr-40 pl-12 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Search by name, type, manufacturer, etc" />
+              <input type="name" name="search" onChange={(event) => {setQuery(event.target.value)} } className="h-12 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pr-40 pl-12 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Search by title, author, publisher, etc" />
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-2">
+
+              <SearchDropDown name="Search-By" options={['Title', 'Author', 'Publisher']} handler={setSearchBy}/>
+
+              <SearchDropDown name="Category" options={['Engineering', 'Diploma', 'Other']} handler={setCategory}/>
+
+              <SearchDropDown name="Condition" options={['Like New', 'Good', 'Fair', 'Poor']} handler={setCondition}/>
+
               {/* <div className="flex flex-col">
-          <label for="name" className="text-sm font-medium text-stone-600">Name</label>
-          <input type="text" id="name" placeholder="Raspberry juice" className="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
-        </div> */}
-
-              <div className="flex flex-col">
-                <label for="search-by" className="text-sm font-medium text-stone-600">Search By</label>
-
-                <select id="search-by" className="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-                  <option>All</option>
-                  <option>Title</option>
-                  <option>Author</option>
-                  <option>Publisher</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col">
-                <label for="category" className="text-sm font-medium text-stone-600">Category</label>
-
-                <select id="category" className="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-                  <option>Enginerring</option>
-                  <option>Diploma</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col">
-          <label for="condition" className="text-sm font-medium text-stone-600">Condition</label>
-
-          <select id="condition" className="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-            <option>New</option>
-            <option>Like New</option>
-            <option>Fair</option>
-            <option>Poor</option>
-            <option>Old</option>
-          </select>
-        </div>
-
-              <div className="flex flex-col">
                 <label for="date" className="text-sm font-medium text-stone-600">Published Year</label>
-                {/* <input type="date" id="date" className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" /> */}
-                <DatePicker selected="00" showYearPicker dateFormat="yyyy" className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"/>
-              </div>
+                <DatePicker id='date' selected={year} onChange={(e) => {setYear(e.getFullYear())}} showYearPicker dateFormat="yyyy" className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+              </div> */}
             </div>
 
             <div className="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
-              <button className="rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring">Search</button>
+               <ButtonPrimary className=" w-full rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"> Search</ButtonPrimary>
             </div>
           </form>
         </div>
