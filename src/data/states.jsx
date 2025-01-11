@@ -27,7 +27,7 @@ export const Context = createContext(null);
 
 function StatesProvider(params) {
   const [isLogined, setIsLogined] = useState(false);
-  const [user, setUser] = useState({ id: 7, username: "hemanth", password: "hemanth", profile_img: "" });
+  const [user, setUser] = useState("");
   const [users, setUsers] = useState(userData);
   const [cart, setCart] = useState([]);
   const [books, setBooks] = useState(bookData);

@@ -24,6 +24,8 @@ function Explore() {
       }
       setNoBooksFound(false)
       const data = await response.json();
+      console.log(data);
+
       setResults(data.books);
 
     } catch (error) {
@@ -39,9 +41,9 @@ function Explore() {
       </div>
 
       {/* <section id="Projects" */}
-        {/* // className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"> */}
+      {/* // className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"> */}
 
-        <BookList data={result} />
+      <BookList data={result} />
 
       {/* </section> */}
 
