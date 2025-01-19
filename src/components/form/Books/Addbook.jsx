@@ -1,40 +1,46 @@
 import React from 'react'
 import "./Addbook.css"
+import SearchDropDown from '../../search/SearchDropDown'
+import ButtonPrimary from '../../buttons/buttonPrimary'
+import AddBookInput from './AddBookInput'
+import AddBookDrop from './AddBookDrop'
+import ImageUpload from './ImageUpload'
 function Addbook() {
   return (
-      <div>
-        <label className='block0'>
-        <h1>Add New Book</h1>
-      </label>
-    <form>
-        <label name="book name ">Book Name </label>
-        <input type="textbox"
-        name='type your book name '/>
-        <label className='block1'>AUTHOR NAME  
-          <input type="textbox" size="20"
-        name='Author name '/>
-        </label>
-        <label className='block2'>EDITION  
-        <input type='textbox'
-        placeholder='ex:2019'/>
-        </label>
-        <label className='block3'>CATEGORY
-        <input type='textbox'
-        placeholder='Eg:Autobigraphy'/>
-        </label>
-        <label className='block4'>Field:
-          
+    <div className='p-20 flex flex-col justify-center items-center'>
+      <div className='m-10 w-screen max-w-screen-md'>
+        <div className="flex flex-col">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
+            <div className="relative mb-10 w-full flex  items-center justify-between border-b-4">
+              <label className='h-12 w-full py-4 pr-40 pl-1 flex flex-row justify-center items-center'>
+                <h1 className='text-2xl font-semibold mx-auto'>Add New Book</h1>
+              </label>
+            </div>
+            <form>
+              <AddBookInput title="BOOK NAME" />
+              <AddBookInput title="AUTHOR NAME" />
+              <AddBookInput title="PUBLISHER" />
 
-          <select> 
-          <option value="all">all</option>
-          <option value="Enginerring">Enginnering </option>
-        <option value="diploma">Diploma</option>        
-        </select>
-        </label>
-        <label className='block5'>
-        <h1>Upload image </h1>
-        </label>
-           </form>
+              <div className="relative mb-10 w-full flex items-start justify-between rounded-md">
+                <label className='text-lg font-medium text-black-600 w-56'>DESCRIPTION : </label>
+                <textarea type="textbox" className='h-32 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pl-5 shadow-sm outline-none' name='Author name '> </textarea>
+              </div>
+              <AddBookDrop />
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-3">
+                <AddBookInput title="YEAR" type="number" />
+                <AddBookInput title="QUANTITY" type="number" />
+                <AddBookInput title="PRICE" type="number" />
+
+              </div>
+              
+              <ImageUpload />
+              <div className="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
+                <ButtonPrimary className=" w-full rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"> Add Book</ButtonPrimary>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

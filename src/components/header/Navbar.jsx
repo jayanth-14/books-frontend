@@ -51,6 +51,9 @@ function Navbar() {
         <li className='text-lg cursor-pointer hover:text-white '>
           <NavLink to="/search">Search</NavLink>
         </li>
+        <li className='text-lg cursor-pointer hover:text-white '>
+          <NavLink to="/addbook">Add Book</NavLink>
+        </li>
         <UserLinks />
 
 

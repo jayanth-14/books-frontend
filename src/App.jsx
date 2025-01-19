@@ -31,6 +31,7 @@ function App() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/book/:id" element={<Book />}></Route>
+          {/* <Route path="/addbook/" element={<Addbook />}></Route> */}
         </Routes>
         <Footer />
       </StatesProvider>

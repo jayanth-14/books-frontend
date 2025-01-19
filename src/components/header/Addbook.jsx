@@ -1,8 +1,7 @@
 import React from 'react'
-
 function Addbook() {
   return (
-      <div>
+      <div className='m-10 w-screen max-w-screen-md'>
       <h1>Add New Book</h1>
     <form>
         <label className="block ">Book Name 
@@ -21,7 +20,6 @@ function Addbook() {
         <label className='block4'>field</label>
         <input type='text'
         placeholder='Eg:engineerng' >
-          
        </input>
         
             </form>
