@@ -1,18 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { FaShoppingCart } from 'react-icons/fa'
-import { Context } from '../data/states'
 import { useParams } from 'react-router'
 import LoadingPage from './Loading'
 import useGet from '../hooks/useGet'
-import { CgShoppingCart } from 'react-icons/cg'
-import { FaCartShopping } from 'react-icons/fa6'
 import { HiHeart } from 'react-icons/hi'
-import { BsHeartHalf } from 'react-icons/bs'
-import { BiHeart } from 'react-icons/bi'
+import addToWishList from '../functionalities/addToWishList'
+import { Context } from '../data/states'
 
 function Book() {
   const { id } = useParams()
   const [book, setBook] = useState({});
+  const {setAlert} = useContext(Context)
   useEffect(() => {
     const fetchBook = async () => {
       const data = await useGet(`http://localhost:5000/book/${id}`);
@@ -20,6 +17,7 @@ function Book() {
     }
     fetchBook();
   }, [])
+
   return (
     <div className="book">
       {book ?
@@ -54,7 +52,7 @@ function Book() {
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-gray-900">₹ {book?.price}</span>
                   <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded">Buy Now</button>
-                  <button className="rounded-md  h-10 bg-gray-200 p-3 border-0 inline-flex items-center justify-start text-gray-500 ml-4 hover:bg-gray-700 hover:text-gray-100">
+                  <button onClick={() => {addToWishList(id, setAlert)}} className="rounded-md  h-10 bg-gray-200 p-3 border-0 inline-flex items-center justify-start text-gray-500 ml-4 hover:bg-gray-700 hover:text-gray-100">
                     <HiHeart className='text-2xl' /> <span className='text-base'>Add to Wishlist</span>
                   </button>
                 </div>

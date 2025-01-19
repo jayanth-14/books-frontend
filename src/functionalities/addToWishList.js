@@ -1,4 +1,3 @@
-import useGet from '../hooks/useGet'
 export default async function addToWishList(bookId, setAlert) {
   const requestObject = {
     bookId
@@ -13,7 +12,7 @@ export default async function addToWishList(bookId, setAlert) {
     }
   })
 
-  const status = response.json();
+  const status = await response.json();
   if (status.status === 'success') {
     setAlert([{type: 'success', message: "book added to wishlist!"}]);
     return

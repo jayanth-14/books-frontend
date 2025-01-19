@@ -16,15 +16,11 @@ export default function WishList() {
     fetchWishList();
   }, [])
   return (
-    //  <section id="Projects" 
-    // className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-    <div>
-
+     <div>
       <div className="text-center p-10">
         <h1 className="font-bold text-4xl mb-4">Your Saved Wishlist</h1>
       </div>
       {wishlist ? <BookList data={wishlist} /> : <LoadingPage />}
-      {/* </section> */}
     </div>
   )
 }
