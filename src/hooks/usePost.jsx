@@ -1,4 +1,4 @@
-export default async function useGet(url, requestObject) {
+export default async function usePost(url, requestObject) {
   try {
     const response = await fetch(`http://localhost:5000/books`, {
       method: 'POST',
@@ -6,7 +6,7 @@ export default async function useGet(url, requestObject) {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: requestObject,
+      body: JSON.stringify(requestObject),
       credentials: 'include'
     });
     const data = await response.json();

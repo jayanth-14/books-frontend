@@ -4,11 +4,8 @@ import { useEffect } from 'react';
 
 function Alert({ alert, index }) {
   const { setAlert } = useContext(Context);
-  let alertColor = '';
-  if (alert) {
-    alertColor = (alert.type === 'success') ? 'green' : 'red';
-  }
-
+  let alertColor = (alert.type === 'success') ? 'green' : 'red';
+    
   const handleDismiss = () => {
     setAlert((alerts) => {
       return alerts.filter((alertItem, i) => i !== index);
@@ -16,14 +13,12 @@ function Alert({ alert, index }) {
   }
 
   // for auto dismissing the alerts
-
   setTimeout(() => {
     handleDismiss();
   }, 1500);
 
   return (
-    <div className={`bg-${alertColor}-200 px-10 py-4 mx-2 my-4 rounded-md text-lg flex items-center max-w-lg justify-between gap-5`}>
-
+    <div className={`px-10 py-4 mx-2 my-4 rounded-md text-lg flex items-center max-w-lg justify-between gap-5`}>
       {alert && <>
       <div className='flex items-center'>
         <svg viewBox="0 0 24 24" className={`text-${alertColor}-600 w-5 h-5 sm:w-5 sm:h-5 mr-3`}>
