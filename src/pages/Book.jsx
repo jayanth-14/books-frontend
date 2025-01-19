@@ -2,60 +2,64 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { Context } from '../data/states'
 import { useParams } from 'react-router'
-import { addToCart } from '../functionalities/addToCart'
 import LoadingPage from './Loading'
+import useGet from '../hooks/useGet'
 
 function Book() {
-  const { books, cart, setCart } = useContext(Context)
   const { id } = useParams()
   const [book, setBook] = useState({});
   useEffect(() => {
     const fetchBook = async () => {
-      const response = await fetch(`http://localhost:5000/book/${id}`, {
-        credentials: 'include'
-      });
-      const data = await response.json();
-      console.log(data);
+      const data = await useGet(`http://localhost:5000/book/${id}`);
       setBook(data.book);
     }
     fetchBook();
   }, [])
   return (
     <div className="book">
-
-      {book ? <section className="bookDetails w-full h-screen">
-        <div className="bg-gray-100">
-          <div className="container mx-auto px-4 py-16 ">
-            <div className="flex flex-wrap -mx-4">
-              <div className="w-full md:w-1/2 px-4 mb-8">
-                <img src={book.image_url} alt="Product"
-                  className="w-full h-96 object-contain rounded-lg shadow-2xl mb-4 py-5" id="mainImage" />
-              </div>
-              <div className="w-full md:w-1/2 px-4">
-                <h2 className="text-3xl font-bold mb-2">{book.title}</h2>
-                <p className="text-gray-600 mb-4">BY: {book.author}</p>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold mr-2">${book.price}</span>
+      {book ?
+      <section className="text-gray-700 body-font overflow-hidden bg-white h-screen">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt={`book-${id}`} className="lg:w-1/2 w-full object-contain object-center rounded border border-gray-200 h-80 py-4" src={book?.imageUrl} />
+              <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{book?.title}</h1>
+                <h2 className="text-sm title-font text-gray-500 tracking-widest m-1">BY - {book.author}</h2>
+                <p className="leading-relaxed">{book?.description}</p>
+                <div className="flex mt-6 items-center justify-between pt-5 border-t-2 border-gray-200 mb-5 gap-4">
+                  <div className="flex">
+                    <span className="mr-3">Publisher : </span>
+                    <span>{book?.publisher || 'Unknown'}</span>
+                  </div>
+                  <div className="flex">
+                    <span className="mr-3">Quantity : </span>
+                    <span>{book?.quantity}</span>
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-6">{book.description}</p>
-                <div className="mb-6">
-                  <label for="quantity" className="block text-sm font-medium text-gray-700 mb-1">Quantity:</label>
-                  <input type="number" id="quantity" name="quantity" min="1" value="1"
-                    className="w-12 text-center rounded-md border-gray-300  shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                <div className="flex mt-6 items-center justify-between pb-5 border-b-2 border-gray-200 mb-5 gap-4">
+                  <div className="flex">
+                    <span className="mr-3">Category : </span>
+                    <span>{book?.category}</span>
+                  </div>
+                  <div className="flex">
+                    <span className="mr-3">Condition : </span>
+                    <span>{book?.condition || 'Not Mentioned'}</span>
+                  </div>
                 </div>
-                <div className="flex space-x-4 mb-6">
-                  <button
-                    onClick={() => addToCart(book, cart, setCart)}
-                    className="bg-indigo-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                    <FaShoppingCart />
-                    Add to Cart
+                <div className="flex">
+                  <span className="title-font font-medium text-2xl text-gray-900">₹ {book?.price}</span>
+                  <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded">Button</button>
+                  <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                    </svg>
                   </button>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-      </section> : <LoadingPage />
+      </section>
+      : <LoadingPage />
       }
     </div>
   )

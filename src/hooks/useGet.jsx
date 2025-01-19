@@ -1,6 +1,6 @@
 export default async function useGet(url) {
   try {
-    const response = await fetch(`http://localhost:5000/books`, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
