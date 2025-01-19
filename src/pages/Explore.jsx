@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BookList from '../components/books/BookList';
+import useGet from '../hooks/useGet';
 
 function Explore() {
   const [result, setResults] = useState([]);
@@ -10,24 +11,13 @@ function Explore() {
   const handleExplore = async () => {
     try {
       setNoBooksFound(false);
-      const response = await fetch(`http://localhost:5000/books`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        credentials: 'include'
-      });
-      if (!response.ok) {
+      const data = await useGet("http://localhost:5000/books");
+      if (data.books.length === 0) {
         setNoBooksFound(true);
         return;
       }
       setNoBooksFound(false)
-      const data = await response.json();
-      console.log(data);
-
       setResults(data.books);
-
     } catch (error) {
       console.log("error message: " + error);
 
