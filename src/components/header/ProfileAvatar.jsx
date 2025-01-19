@@ -19,7 +19,7 @@ export default function ProfileAvatar() {
           </button>
 
           <div
-            className="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg hidden group-hover:block"
+            className="absolute right-10 -top-px end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg hidden group-hover:block"
             role="menu"
           >
             <div className="p-2">
@@ -32,7 +32,7 @@ export default function ProfileAvatar() {
               </Link>
 
               <Link
-                to="/cart"
+                to="wishlist"
                 className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 role="menuitem"
               >

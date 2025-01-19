@@ -12,6 +12,7 @@ import Search from './components/search/Search';
 import Explore from './pages/Explore';
 import AlertContainer from './components/alerts/Alert';
 import Addbook from './components/form/Books/Addbook';
+import WishList from './pages/WishList';
 function App() {
 
   return (
@@ -28,7 +29,7 @@ function App() {
           <Route path="/explore" element={<Explore />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/wishlist" element={<WishList />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/book/:id" element={<Book />}></Route>
           {/* <Route path="/addbook/" element={<Addbook />}></Route> */}
