@@ -1,5 +1,4 @@
 const getProfileDetails = async() => {
-  // Make a GET request to the server to get user profile details
   try {
     
     const response = await fetch("http://localhost:5000/profile", {
