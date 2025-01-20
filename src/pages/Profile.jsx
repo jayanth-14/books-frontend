@@ -22,7 +22,6 @@ function Profile() {
                 <Avatar />
                 <ProfileDetails profile={profile} />
                 </div>
-                <Cart />
             </section>
         </>
     )

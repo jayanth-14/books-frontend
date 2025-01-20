@@ -21,7 +21,7 @@ function Book() {
   return (
     <div className="book">
       {book ?
-      <section className="text-gray-700 body-font overflow-hidden bg-white h-screen">
+      <section className="text-gray-700 body-font overflow-hidden bg-white ">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img alt={`book-${id}`} className="lg:w-1/2 w-full object-contain object-center rounded border border-gray-200 h-80 py-4" src={book?.imageUrl} />

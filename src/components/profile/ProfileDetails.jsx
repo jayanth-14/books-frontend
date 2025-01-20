@@ -42,6 +42,14 @@ export default function ProfileDetails({ profile }) {
               {profile?.address ? profile.address : "No Address Available"}
             </dd>
           </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-blue-300">
+            <dt className="text-md font-semibold text-black">
+              Available Credits
+            </dt>
+            <dd className="mt-1 text-lg font-semibold text-gray-900 sm:mt-0 sm:col-span-2">
+              {profile?.credits ? profile.credits : "0.00"}
+            </dd>
+          </div>
         </dl>
       </div>
     </div>

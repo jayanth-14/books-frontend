@@ -13,6 +13,8 @@ export default async function addToWishList(bookId, setAlert) {
   })
 
   const status = await response.json();
+  console.log(status);
+  
   if (status.status === 'success') {
     setAlert([{type: 'success', message: "book added to wishlist!"}]);
     return

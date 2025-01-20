@@ -45,7 +45,7 @@ const AlertContainer = () => {
 
   
   return (
-    <div className="alertContainer flex justify-center items-end fixed top-32 right-0 z-50">
+    <div className="alertContainer flex justify-center items-end fixed top-5 right-0 z-50">
       {alert && alert.map((alertItem, index) => {
         return <Alert alert={alertItem} key={index} index={index} />
       })}
