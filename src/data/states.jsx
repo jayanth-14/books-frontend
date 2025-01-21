@@ -32,9 +32,10 @@ function StatesProvider(params) {
   const [cart, setCart] = useState([]);
   const [books, setBooks] = useState(bookData);
   const [alert, setAlert] = useState([]);
+  const [checkoutBook, setCheckoutBook] = useState({});
 
   return (
-    <Context.Provider value={{ isLogined, setIsLogined, user, setUser, users, setUsers, books, setBooks, cart, setCart, alert, setAlert }}>
+    <Context.Provider value={{ isLogined, setIsLogined, user, setUser, users, setUsers, books, setBooks, cart, setCart, alert, setAlert, checkoutBook, setCheckoutBook }}>
       {params.children}
     </Context.Provider>
   )
