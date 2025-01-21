@@ -21,7 +21,7 @@ function Alert({ alert, index }) {
 
   return (
     <div
-      className={`px-6 py-4 mx-auto my-4 rounded-lg shadow-lg flex items-center justify-between max-w-lg border-l-4 border-${alertColor}-500 bg-${alertColor}-50`}
+      className={`px-6 py-4 mx-auto my-4 rounded-lg shadow-lg flex items-center justify-between max-w-lg border-l-4 border-${alertColor}-500 bg-white`}
     >
       {alert && (
         <>

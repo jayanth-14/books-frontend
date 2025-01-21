@@ -30,13 +30,26 @@ export default function ProfileAvatar() {
               >
                 My profile
               </Link>
-
+              <Link
+                to="addbook"
+                className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                Add Book
+              </Link>
               <Link
                 to="wishlist"
                 className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 role="menuitem"
               >
-                My Cart
+                My Wishlist
+              </Link>
+              <Link
+                to="orders"
+                className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                My Orders
               </Link>
 
               <Link
