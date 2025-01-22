@@ -9,7 +9,7 @@ import checkout from '../functionalities/checkout'
 
 function Book() {
   const { id } = useParams()
-  const [book, setBook] = useState({});
+  const [book, setBook] = useState(null);
   const navigate = useNavigate();
   const {setAlert, setCheckoutBook} = useContext(Context)
   useEffect(() => {

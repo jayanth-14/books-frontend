@@ -12,8 +12,6 @@ export default async function useGet(url) {
     return data;
     
   } catch (error) {
-    console.log(`Error at fetching data from ${url}:`, error);
-    throw new Error(`Error at fetching data from ${url}:`, error);
-    
+    console.log(`Error at fetching data from ${url}:`, error);    
   }
 }

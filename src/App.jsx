@@ -15,6 +15,7 @@ import Addbook from './components/form/Books/Addbook';
 import WishList from './pages/WishList';
 import CheckoutPage from './pages/Checkout';
 import Order from './pages/Order';
+import Land from './pages/Land';
 function App() {
 
   return (

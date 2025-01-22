@@ -1,12 +1,18 @@
 
+const getCoordinates = async () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => resolve([position.coords.latitude, position.coords.longitude]),
+      (error) => reject(error)
+    );
+  });
+};
+
+
 export default async function addUser(name, email, password, phone, address, setAlert, navigate) {
   try {
-    let latitude = 0, longitude = 0;
-    navigator.geolocation.getCurrentPosition((position) => {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
-    })
-    // console.log(coordinates);
+    const coordinates = await getCoordinates();
+    console.log(coordinates);
     
     const newUser = {
       fullName: name,
@@ -14,7 +20,7 @@ export default async function addUser(name, email, password, phone, address, set
       password: password,
       phone: phone,
       profile_img: "",
-      coordinates: [latitude, longitude],
+      coordinates:coordinates,
       address: address
       
     }
