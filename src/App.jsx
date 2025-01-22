@@ -16,6 +16,7 @@ import Addbook from './components/form/Books/Addbook';
 import WishList from './pages/WishList';
 import CheckoutPage from './pages/Checkout';
 import Order from './pages/Order';
+import Mylist from './pages/MyList';
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
 
@@ -57,6 +58,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/mybooks" element={<Mylist />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<Profile />} />

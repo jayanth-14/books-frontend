@@ -51,7 +51,13 @@ export default function ProfileAvatar() {
               >
                 My Orders
               </Link>
-
+              <Link
+                to="/mybooks"
+                className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                My books
+              </Link>
               <Link
                 to="/profiel-update"
                 className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"

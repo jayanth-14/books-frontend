@@ -38,9 +38,16 @@ function Header() {
               <Logo />
             </Link>
           </div>
-          <div className="md:flex md:items-center md:gap-12 flex gap-2 items-center"> <Navbar />
+          <div className="md:flex md:items-center md:gap-12 flex gap-2 items-center">
 
-            {isLogined ? <ProfileAvatar /> : <UserButtons />}
+            {isLogined ?
+              <>
+                <Navbar />
+                <ProfileAvatar />
+              </>
+              :
+              <UserButtons />
+            }
 
             <div className="block md:hidden">
               <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
