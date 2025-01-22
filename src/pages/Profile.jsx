@@ -14,7 +14,7 @@ function Profile() {
             setProfile(profileDetails);
         }
         loadProfile();
-    }, [])
+    }, []) 
     return (
         <>
             <section className="profile px-24 mt-10 w-full">
