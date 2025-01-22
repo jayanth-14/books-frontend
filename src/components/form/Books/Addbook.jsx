@@ -20,7 +20,7 @@ function Addbook() {
 
 const handleForm = async () => {
   const requestBody = {title, author, publishedYear, publisher, description, category, condition, quantity, price, imageUrl};
-  const data = await usePost('http://localhost:5000/books',requestBody);
+  const data = await usePost('http://localhost:5000/addbook',requestBody);
   if (data.status === 'success') {
     setAlert([{type : "success", message: "Book is added Successfully!"}]);
     return;
