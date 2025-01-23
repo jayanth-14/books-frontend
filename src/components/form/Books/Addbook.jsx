@@ -15,12 +15,29 @@ function Addbook() {
   const [publishedYear, setPublishedYear] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
-  const [imageUrl, setImageUrl] = useState("https://placehold.co/600x400/EEE/31343C");
+  const [image, setImage] = useState();
   const {setAlert} = useContext(Context)
 
 const handleForm = async () => {
-  const requestBody = {title, author, publishedYear, publisher, description, category, condition, quantity, price, imageUrl};
-  const data = await usePost('http://localhost:5000/addbook',requestBody);
+  // const requestBody = {title, author, publishedYear, publisher, description, category, condition, quantity, price, imageUrl};
+  const requestBody = new FormData();
+  requestBody.append('title', title);
+  requestBody.append('author', author);
+  requestBody.append('publisher', publisher);
+  requestBody.append('description', description);
+  requestBody.append('category', category);
+  requestBody.append('condition', condition);
+  requestBody.append('publishedYear', publishedYear);
+  requestBody.append('quantity', quantity);
+  requestBody.append('price', price);
+  requestBody.append('image', image);
+
+  const response = await fetch('http://localhost:5000/addbook',{
+    method: 'POST',
+    credentials: 'include',
+    body: requestBody
+  });
+  const data = await response.json();
   if (data.status === 'success') {
     setAlert([{type : "success", message: "Book is added Successfully!"}]);
     return;
@@ -52,7 +69,7 @@ const handleForm = async () => {
                 <AddBookInput title="QUANTITY" type="number" handler={setQuantity} placehoder="Ex: 1"/>
                 <AddBookInput title="PRICE" type="number" handler={setPrice} placehoder="Ex: 250"/>
               </div>
-              <ImageUpload />
+              <ImageUpload handler={setImage}/>
               <div className="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
                 <ButtonPrimary className=" w-full rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"> Add Book</ButtonPrimary>
               </div>

@@ -10,7 +10,12 @@ function BookCard({book, index}) {
   >
     <div className="relative pb-[120%] mb-4">
       <img
-        src={`./images/dummy_data/book_${index + 1}.jpg`}
+        src={book?.image?.data ? `data:image/jpeg;base64,${btoa(
+          new Uint8Array(book.image.data.data).reduce(
+            (data, byte) => data + String.fromCharCode(byte),
+            ''
+          )
+        )}` : 'https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-image-vector-illustration-isolated-png-image_4979075.jpg'}
         alt={`${book.title}`}
         className="absolute top-0 left-0 w-full h-full object-cover rounded-xl p-2"
       />
