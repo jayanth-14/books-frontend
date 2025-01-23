@@ -17,6 +17,8 @@ import WishList from './pages/WishList';
 import CheckoutPage from './pages/Checkout';
 import Order from './pages/Order';
 import Mylist from './pages/MyList';
+import Land from './pages/Land';
+import Transactions from './components/seller/transactions/Transactions';
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
 
@@ -68,6 +70,8 @@ function App() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/addbook" element={<Addbook />} />
             <Route path="/orders" element={<Order />} />
+            <Route path="/land" element={<Land />} />
+            <Route path="/transactions" element={<Transactions />} />
           </Routes>
           <Footer />
         </StatesProvider>
