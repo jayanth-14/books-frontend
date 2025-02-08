@@ -17,38 +17,46 @@ function CheckoutPage() {
     if (quantity > 1) setQuantity(quantity - 1);
   };
   const checkout = async () => {
-    const response = await fetch('http://localhost:5000/checkout', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
+    try {
+      const checkoutUrl = import.meta.env.VITE_BACKEND + "checkout";
+      const response = await fetch(checkoutUrl, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-      body: JSON.stringify({
-        bookId: checkoutBook._id,
-        title: checkoutBook.title,
-        quantity: quantity,
-        amount: checkoutBook.price * quantity,
-        sellerId: checkoutBook.sellerId
-      })
-    })
-    const data = await response.json()
-    setAlert([data]);
-    if (data.status === 'success') {
-      navigate('/orders');
-    }
-    
-  }
+        body: JSON.stringify({
+          bookId: checkoutBook._id,
+          title: checkoutBook.title,
+          quantity: quantity,
+          amount: checkoutBook.price * quantity,
+          sellerId: checkoutBook.sellerId,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
 
-useEffect(() => {
-  const fetchAddress = async () => {
-    const response = await useGet("http://localhost:5000/address");
-    console.log(response);
-    
-    setAddress(response.address)
-  }
-  fetchAddress();
-}, [])
+      setAlert([data]);
+      if (data.status === "success") {
+        // navigate("/orders");
+        window.location.href = data.transactionLink;
+      }
+    } catch (error) {
+      console.log("Error at checkout : ", error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchAddress = async () => {
+      const addressUrl = import.meta.env.VITE_BACKEND + "address";
+      const response = await useGet(addressUrl);
+      console.log(response);
+
+      setAddress(response.address);
+    };
+    fetchAddress();
+  }, []);
 
   const totalPrice = quantity * checkoutBook?.price;
 
@@ -59,9 +67,13 @@ useEffect(() => {
 
         {/* Product Details */}
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-700">{checkoutBook?.title}</h3>
+          <h3 className="text-lg font-semibold text-gray-700">
+            {checkoutBook?.title}
+          </h3>
           <p className="text-sm text-gray-500">{checkoutBook?.description}</p>
-          <p className="text-md font-bold text-gray-800">Price: ${checkoutBook?.price}</p>
+          <p className="text-md font-bold text-gray-800">
+            Price: ${checkoutBook?.price}
+          </p>
         </div>
 
         {/* Quantity Selector */}
@@ -89,11 +101,9 @@ useEffect(() => {
           >
             Delivery Address:
           </label>
-         <div>
-          <p>
-            {address && address}
-          </p>
-         </div>
+          <div>
+            <p>{address && address}</p>
+          </div>
         </div>
 
         {/* Total Price */}
@@ -105,7 +115,9 @@ useEffect(() => {
         {/* Checkout Button */}
         <button
           className="w-full py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
-          onClick={async() => {await checkout()}}
+          onClick={async () => {
+            await checkout();
+          }}
         >
           Place Order
         </button>

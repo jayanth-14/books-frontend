@@ -12,8 +12,6 @@ const getCoordinates = async () => {
 export default async function addUser(name, email, password, phone, address, setAlert, navigate) {
   try {
     const coordinates = await getCoordinates();
-    console.log(coordinates);
-    
     const newUser = {
       fullName: name,
       email: email,
@@ -22,9 +20,9 @@ export default async function addUser(name, email, password, phone, address, set
       profile_img: "",
       coordinates:coordinates,
       address: address
-      
     }
-    const response = await fetch("http://localhost:5000/signup", {
+    const url = import.meta.env.VITE_BACKEND + "signup";
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +43,7 @@ export default async function addUser(name, email, password, phone, address, set
     }, 1500);
     console.log(data);
   } catch (error) {
-    console.log("error at login : ", error);
+    console.log("error at Registertion : ", error);
 
   }
 }

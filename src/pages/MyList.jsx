@@ -6,13 +6,14 @@ import LoadingPage from './Loading';
 function Mylist() {
   const [result, setResults] = useState([]);
   const [noBooksFound, setNoBooksFound] = useState(false);
+  const url = import.meta.env.VITE_BACKEND + "mybooks";
   useEffect(() => {
     handleExplore();
   }, [])
   const handleExplore = async () => {
     try {
       setNoBooksFound(false);
-      const response = await fetch("http://localhost:5000/mybooks", {
+      const response = await fetch(url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

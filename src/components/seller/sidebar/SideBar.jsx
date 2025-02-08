@@ -1,11 +1,9 @@
 import React from 'react'
 import SideBarItem from './SideBarItem'
-import { FaFonticonsFi, FaPlus } from 'react-icons/fa'
-import { BiNotification, BiSolidBook, BiSolidDashboard, BiSolidNotification } from 'react-icons/bi'
-import { FaBookAtlas, FaBookSkull } from 'react-icons/fa6'
+import { FaPlus } from 'react-icons/fa'
+import { BiSolidDashboard } from 'react-icons/bi'
 import { ImBooks } from 'react-icons/im'
 import { TbTransactionRupee } from 'react-icons/tb'
-// import { FaDashcube } from 'react-icons/fa'
 
 export default function SideBar() {
   return (
@@ -14,11 +12,10 @@ export default function SideBar() {
         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <div className="flex-1 px-3 bg-white divide-y space-y-1">
             <ul className="space-y-2 pb-2">
-            <SideBarItem title={"dashboard"} to={"/dashboard"} icon={<BiSolidDashboard className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
-            <SideBarItem title={"Listed Books"} to={"/mybooks"} icon={<ImBooks className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
-            <SideBarItem title={"Add New Book"} to={"/addbook"} icon={<FaPlus className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
-            {/* <SideBarItem title={"Notification"} icon={<BiSolidNotification className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} /> */}
-            <SideBarItem title={"Seller Tranactions"} to={"/transactions"} icon={<TbTransactionRupee className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
+            <SideBarItem title={"dashboard"} to={"details"} icon={<BiSolidDashboard className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
+            <SideBarItem title={"Listed Books"} to={"mybooks"} icon={<ImBooks className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
+            <SideBarItem title={"Add New Book"} to={"addbook"} icon={<FaPlus className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
+            <SideBarItem title={"Seller Tranactions"} to={"transactions"} icon={<TbTransactionRupee className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
             
             </ul>
 

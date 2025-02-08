@@ -2,7 +2,8 @@ export default async function addToWishList(bookId, setAlert) {
   const requestObject = {
     bookId
   }
-  const response = await fetch("http://localhost:5000/wishlist", {
+  const url = import.meta.env.VITE_BACKEND + "wishlist";
+  const response = await fetch(url, {
     method: 'POST',
     credentials: 'include',
     body: JSON.stringify(requestObject),

@@ -1,4 +1,3 @@
-import { FaFacebook, FaInstagram, FaShoppingCart, FaTwitter, FaYoutube } from "react-icons/fa"
 import Navbar from "./Navbar"
 import { useContext, useEffect, useState } from "react"
 import { Context } from "../../data/states"
@@ -19,9 +18,10 @@ function Logo() {
 function Header() {
   const { isLogined, setIsLogined } = useContext(Context);
   const [menuOpen, setMenuOpen] = useState(false)
+  const url = import.meta.env.VITE_BACKEND + "islogined";
   useEffect(() => {
     const checkIfLogined = async () => {
-      const data = await useGet('http://localhost:5000/islogined');
+      const data = await useGet(url);
       if (data.isLogined) {
         setIsLogined(true)
       }
@@ -29,7 +29,7 @@ function Header() {
     checkIfLogined();
   }, [])
   return (
-    <header className="bg-white">
+    <header className="bg-white sticky top-0 z-50 w-full">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">

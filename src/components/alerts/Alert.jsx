@@ -10,7 +10,7 @@ function Alert({ alert, index }) {
     setAlert((alerts) => alerts.filter((alertItem, i) => i !== index));
   };
 
-  // Automatically dismiss the alert after 1.5 seconds
+  // Automatically dismiss or close the alert after 1.5 seconds
   useEffect(() => {
     const timeout = setTimeout(() => {
       handleDismiss();

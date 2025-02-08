@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 export default function ProfileAvatar() {
   return (
-    <div className=" md:relative md:block group">
+    <div className="relative md:relative md:block group z-40">
 
           <button
             type="button"
@@ -57,6 +57,13 @@ export default function ProfileAvatar() {
                 role="menuitem"
               >
                 My books
+              </Link>
+              <Link
+                to="/dashboard/details"
+                className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                Seller Dashboard
               </Link>
               <Link
                 to="/profiel-update"

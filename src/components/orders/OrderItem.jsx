@@ -5,7 +5,8 @@ import { Context } from '../../data/states'
 function OrderItem({order}) {
   const {setAlert} = useContext(Context);
   const handleDelivered = async (orderId) => {
-    const response = await usePost('http://localhost:5000/delivered', {
+    const url = import.meta.env.VITE_BACKEND + "delivered";
+    const response = await usePost(url, {
       transactionId : orderId
     })
     setAlert([response]);

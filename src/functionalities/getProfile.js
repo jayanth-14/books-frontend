@@ -1,7 +1,7 @@
 const getProfileDetails = async() => {
   try {
-    
-    const response = await fetch("http://localhost:5000/profile", {
+    const url = import.meta.env.VITE_BACKEND + "profile";
+    const response = await fetch(url, {
       method: "Get",
       credentials: "include",
       headers: {

@@ -3,7 +3,6 @@ import ButtonPrimary from '../../buttons/buttonPrimary'
 import AddBookInput from './AddBookInput'
 import AddBookDrop from './AddBookDrop'
 import ImageUpload from './ImageUpload'
-import usePost from '../../../hooks/usePost'
 import { Context } from '../../../data/states'
 function Addbook() {
   const [title, setTitle] = useState("");
@@ -19,7 +18,6 @@ function Addbook() {
   const {setAlert} = useContext(Context)
 
 const handleForm = async () => {
-  // const requestBody = {title, author, publishedYear, publisher, description, category, condition, quantity, price, imageUrl};
   const requestBody = new FormData();
   requestBody.append('title', title);
   requestBody.append('author', author);
@@ -32,7 +30,8 @@ const handleForm = async () => {
   requestBody.append('price', price);
   requestBody.append('image', image);
 
-  const response = await fetch('http://localhost:5000/addbook',{
+  const url = import.meta.env.VITE_BACKEND + "addbook";
+  const response = await fetch(url,{
     method: 'POST',
     credentials: 'include',
     body: requestBody

@@ -5,10 +5,11 @@ import useGet from '../../../hooks/useGet'
 
 export default function Transactions({count}) {
   const [data, setData] = useState([]);
-  const title = count === undefined ? 'Latest Transactions' : `Last ${count}Transactions`
+  const title = count === undefined ? 'Latest Transactions' : `Last ${count}Transactions`;
+  const url = import.meta.env.VITE_BACKEND + "transactions";
   useEffect(() => {
     const getTransactions = async () => {
-      const response = await useGet("http://localhost:5000/transactions");
+      const response = await useGet(url);
       setData(response.transactions);
     }
     getTransactions();

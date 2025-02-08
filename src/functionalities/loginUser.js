@@ -1,7 +1,7 @@
 export default async function LoginUser(email, password, setUser, setIsLogined, setAlert) {
   try {
-    
-    const response = await fetch("http://localhost:5000/signin",{
+    const url = import.meta.env.VITE_BACKEND + "signin";    
+    const response = await fetch(url,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
