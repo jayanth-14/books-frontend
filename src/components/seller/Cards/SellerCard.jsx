@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function SellerCard({count, title}) {
+function SellerCard({ count, title }) {
   return (
-    <div className='w-[300px] border border-[#D9D9D9] rounded-md p-5'>
-      <p className="text-[48px] text-[#085E00] font-semibold mb-1"> {count}</p>
-      <p className="text-2xl text-[#525252] font-semibold">{title}</p>
+    <div className='w-72 border border-gray-300 rounded-lg p-6 shadow-md bg-white text-center'>
+      <p className="text-5xl text-green-700 font-bold mb-2">{count}</p>
+      <p className="text-xl text-gray-600 font-semibold">{title}</p>
     </div>
-  )
+  );
 }
 
-export default SellerCard
+export default SellerCard;

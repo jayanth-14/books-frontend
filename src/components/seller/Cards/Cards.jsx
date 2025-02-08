@@ -1,12 +1,13 @@
+// Cards Component
 import React from "react";
 import SellerCard from "./SellerCard";
 
 function Cards() {
   return (
-    <div className="w-full flex flex-row flex-wrap gap-5">
+    <div className="w-full flex flex-wrap justify-center gap-6 p-6">
       <SellerCard count={20} title={"Total Orders"} />
-      <SellerCard count={20} title={"Total Sell"}/>
-      <SellerCard count={20} title={"Total Products Listed"}/>
+      <SellerCard count={20} title={"Total Sell"} />
+      <SellerCard count={20} title={"Total Products Listed"} />
     </div>
   );
 }

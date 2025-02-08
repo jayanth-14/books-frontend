@@ -17,10 +17,9 @@ import WishList from "./pages/WishList";
 import CheckoutPage from "./pages/Checkout";
 import Order from "./pages/Order";
 import Mylist from "./pages/MyList";
-import Land from "./pages/Dashboard";
-import Transactions from "./components/seller/transactions/Transactions";
 import DashBoard from "./pages/Dashboard";
 import SellerDetails from "./components/seller/Cards/SellerDetails";
+
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
 
@@ -42,51 +41,46 @@ function App() {
   };
 
   return (
-    <>
-      <div className="min-h-screen flex flex-col">
-        <StatesProvider>
-          <Header></Header>
-          <AlertContainer></AlertContainer>
+    <div className="min-h-screen flex flex-col">
+      <StatesProvider>
+        <Header />
+        <AlertContainer />
 
-          {/* Offline Notification */}
+        {isOffline && (
+          <div className="fixed top-0 left-0 w-full bg-red-500 text-white text-center py-3 z-50">
+            <p>You are offline. Please check your network connection.</p>
+            <button
+              onClick={retryConnection}
+              className="mt-2 bg-white text-red-500 px-4 py-2 rounded-md hover:bg-gray-200 transition"
+            >
+              Retry
+            </button>
+          </div>
+        )}
 
-          {isOffline && (
-            <div className="fixed top-0 left-0 w-full bg-red-500 text-white text-center py-3 z-50">
-              <p>You are offline. Please check your network connection.</p>
-              <button
-                onClick={retryConnection}
-                className="mt-2 bg-white text-red-500 px-4 py-2 rounded-md hover:bg-gray-200 transition"
-              >
-                Retry
-              </button>
-            </div>
-          )}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/mybooks" element={<Mylist />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/book/:id" element={<Book />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/addbook" element={<Addbook />} />
+          <Route path="/orders" element={<Order />} />
+          <Route path="/dashboard" element={<DashBoard />}>
+            <Route path="details" element={<SellerDetails />} />
+            <Route path="mybooks" element={<Mylist />} />
+            <Route path="addbook" element={<Addbook />} />
+          </Route>
+        </Routes>
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/mybooks" element={<Mylist />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/wishlist" element={<WishList />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/book/:id" element={<Book />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/addbook" element={<Addbook />} />
-            <Route path="/orders" element={<Order />} />
-            <Route path="/dashboard" element={<DashBoard />}>
-              <Route path="details" element={<SellerDetails />} />
-              <Route path="mybooks" element={<Mylist />} />
-              <Route path="addbook" element={<Addbook />} />
-              <Route path="transactions" element={<Transactions />} />
-            </Route>
-            <Route path="/transactions" element={<Transactions />} />
-          </Routes>
-          <Footer />
-        </StatesProvider>
-      </div>
-    </>
+        <Footer />
+      </StatesProvider>
+    </div>
   );
 }
 
