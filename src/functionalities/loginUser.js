@@ -16,7 +16,7 @@ export default async function LoginUser(email, password, setUser, setIsLogined, 
     }
     const data = await response.json();
     
-    setUser(data.data.userId);
+    setUser(data.data);
     localStorage.setItem("userId", JSON.stringify(data.data.userId));
     console.log(data);
     

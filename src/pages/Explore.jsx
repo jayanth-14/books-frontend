@@ -21,14 +21,12 @@ function Explore() {
         credentials: "include",
       });
       const data = await response.json();
-      console.log(data);
 
       if (data.books.length === 0) {
         setNoBooksFound(true);
         return;
       }
       setNoBooksFound(false);
-      console.log(data);
       setResults(data.books);
     } catch (error) {
       console.log("error message: " + error);
