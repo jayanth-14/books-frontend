@@ -2,12 +2,21 @@
 import React from "react";
 import SellerCard from "./SellerCard";
 
-function Cards() {
+function Cards({data}) {
+  const keys = Object.keys(data);  
   return (
     <div className="w-full flex flex-wrap justify-center gap-6 p-6">
-      <SellerCard count={20} title={"Total Orders"} />
-      <SellerCard count={20} title={"Total Sell"} />
-      <SellerCard count={20} title={"Total Products Listed"} />
+      {
+        keys.map((item) => {
+          return (
+            <SellerCard
+            key={item}
+            count={data[item]}
+            title={item}
+            />
+            );
+        })
+      }
     </div>
   );
 }

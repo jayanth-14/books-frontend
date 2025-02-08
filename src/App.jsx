@@ -19,6 +19,7 @@ import Order from "./pages/Order";
 import Mylist from "./pages/MyList";
 import DashBoard from "./pages/Dashboard";
 import SellerDetails from "./components/seller/Cards/SellerDetails";
+import Transactions from "./components/seller/transactions/Transactions";
 
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -72,6 +73,7 @@ function App() {
           <Route path="/addbook" element={<Addbook />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/dashboard" element={<DashBoard />}>
+          <Route path="transactions" element={<Transactions />} />
             <Route path="details" element={<SellerDetails />} />
             <Route path="mybooks" element={<Mylist />} />
             <Route path="addbook" element={<Addbook />} />
