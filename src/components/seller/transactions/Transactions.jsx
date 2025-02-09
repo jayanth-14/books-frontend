@@ -5,8 +5,13 @@ import useGet from '../../../hooks/useGet'
 
 export default function Transactions() {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState("Latest Transactions")
-  // const title = count === undefined ? 'Latest Transactions' : `Last ${count}Transactions`;
+  const [filter, setFilter] = useState("Latest Transactions");
+  const [currentPage, setCurrentPage] = useState(1);
+  const filteredTransactions = data && data.filter((item) => {return filter === "Latest Transactions" || item.transactionStatus === filter});
+  const transactionsPerPage = 20;
+  const totalPages = data && Math.ceil(data.length / transactionsPerPage) || 1;
+  const startingIndex = (currentPage - 1) * transactionsPerPage;
+  const currentPageTransactions = filteredTransactions && filteredTransactions.slice(startingIndex, startingIndex + transactionsPerPage);
   const url = import.meta.env.VITE_BACKEND + "transactions";
   useEffect(() => {
     const getTransactions = async () => {
@@ -17,7 +22,7 @@ export default function Transactions() {
   }, [])
 
   const populateTransactions = () => {
-    const tranactions = data.filter((item) => {return filter === "Latest Transactions" || item.transactionStatus === filter}).map((item, index) => (
+    const tranactions = currentPageTransactions.map((item, index) => (
       <TransactionItem key={index} title={item.title || "title not mentioned"} id={item.bookId} user={item.userName} date={item.transactionDate} amount={item.transactionAmount} type={item.transactionStatus} />
       ))
 
@@ -51,6 +56,23 @@ export default function Transactions() {
               </tbody>
               </table>
             </div>
+            <div className="flex justify-center mt-6">
+        <button 
+          onClick={() => setCurrentPage(previousPageNumber => previousPageNumber - 1)}
+          disabled={currentPage === 1}
+          className={`px-4 py-2 mx-1 rounded ${currentPage === 1 ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+        >
+          Prev
+        </button>
+        <span className="px-4 py-2 mx-1 font-semibold">Page {currentPage} of {totalPages}</span>
+        <button 
+          onClick={() => setCurrentPage(previousPageNumber => previousPageNumber + 1)} 
+          disabled={currentPage === totalPages}
+          className={`px-4 py-2 mx-1 rounded ${currentPage === totalPages ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+        >
+          Next
+        </button>
+      </div>
           </div>
         </div>
       </div>
