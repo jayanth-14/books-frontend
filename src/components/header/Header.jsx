@@ -16,15 +16,18 @@ function Logo() {
 
 
 function Header() {
-  const { isLogined, setIsLogined } = useContext(Context);
+  const { isLogined, setIsLogined, setUser } = useContext(Context);
   const [menuOpen, setMenuOpen] = useState(false)
   const url = import.meta.env.VITE_BACKEND + "islogined";
   useEffect(() => {
     const checkIfLogined = async () => {
       const data = await useGet(url);
       if (data.isLogined) {
-        setIsLogined(true)
+        setIsLogined(true);
+        setUser(data.user);
+        
       }
+
     }
     checkIfLogined();
   }, [])
