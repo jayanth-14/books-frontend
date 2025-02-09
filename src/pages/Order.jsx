@@ -13,7 +13,6 @@ export default function Order() {
     const fetchOrders = async () => {
       const ordersUrl = import.meta.env.VITE_BACKEND + "orders";
       const response = await useGet(ordersUrl);
-      console.log(response);
       setOrders(response.orders);
     };
     fetchOrders();

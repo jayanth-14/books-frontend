@@ -1,16 +1,10 @@
 import React, { useContext } from "react";
 import usePost from "../../hooks/usePost";
 import { Context } from "../../data/states";
+import OrderActions from "./OrderActions";
+import OrderActionButtons from "./OrderActionButtons";
 
 function OrderItem({ order }) {
-  const { setAlert } = useContext(Context);
-  const handleDelivered = async (orderId) => {
-    const url = import.meta.env.VITE_BACKEND + "delivered";
-    const response = await usePost(url, {
-      transactionId: orderId,
-    });
-    setAlert([response]);
-  };
   return (
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -43,24 +37,7 @@ function OrderItem({ order }) {
         </span>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm flex gap-1">
-        {order.transactionStatus === "pending" ? (
-          <>
-            <button
-              className="px-4 py-2 bg-green-300 rounded-md text-green-900 cursor-pointer"
-              onClick={() => handleDelivered(order._id)}
-            >
-              Delivered
-            </button>
-            <button className="px-4 py-2 bg-red-300 text-red-900 rounded-md cursor-pointer"
-            >
-              Cancel
-            </button>
-          </>
-        ) : (
-          <p className="px-4 py-2 bg-yellow-300 rounded-md text-yellow-900 cursor-not-allowed">
-            Item has been delivered
-          </p>
-        )}
+       <OrderActionButtons status={order.transactionStatus} id={order._id}/>
       </td>
     </tr>
   );
