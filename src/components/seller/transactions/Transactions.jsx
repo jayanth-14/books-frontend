@@ -3,9 +3,10 @@ import TransactionItem from './TransactionItem'
 import TransactionTableHeader from './TransactionTableHeader'
 import useGet from '../../../hooks/useGet'
 
-export default function Transactions({count}) {
+export default function Transactions() {
   const [data, setData] = useState([]);
-  const title = count === undefined ? 'Latest Transactions' : `Last ${count}Transactions`;
+  const [filter, setFilter] = useState("Latest Transactions")
+  // const title = count === undefined ? 'Latest Transactions' : `Last ${count}Transactions`;
   const url = import.meta.env.VITE_BACKEND + "transactions";
   useEffect(() => {
     const getTransactions = async () => {
@@ -16,7 +17,7 @@ export default function Transactions({count}) {
   }, [])
 
   const populateTransactions = () => {
-    const tranactions = data.map((item, index) => (
+    const tranactions = data.filter((item) => {return filter === "Latest Transactions" || item.transactionStatus === filter}).map((item, index) => (
       <TransactionItem key={index} title={item.title || "title not mentioned"} id={item.bookId} user={item.userName} date={item.transactionDate} amount={item.transactionAmount} type={item.transactionStatus} />
       ))
 
@@ -27,9 +28,17 @@ export default function Transactions({count}) {
     <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-          <span className="text-base font-normal text-gray-500">This is a list of {title}</span>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">Transactions</h3>
+          <span className="text-base font-normal text-gray-500">This is a list of Transactions</span>
         </div>
+        <select className='text-lg bg-gray-200 px-2 py-1 rounded-md border-none outline-none cursor-pointer' name="" id="" onSelect={(event) => {
+          setFilter(event.target.value);
+        }}>
+          <option value="Latest Transactions"> Latest Transactions</option>
+          <option value="Pending">Pending</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
       </div>
       <div className="flex flex-col mt-8">
         <div className="overflow-x-auto rounded-lg">
