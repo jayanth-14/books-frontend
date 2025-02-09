@@ -44,8 +44,16 @@ function OrderItem({order}) {
       </span>
     </td>
     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm flex gap-1">
-        <button className='px-4 py-2 bg-green-300 rounded-md text-green-900' onClick={() => handleDelivered(order._id)}>Delivered</button>
-        <button className='px-4 py-2 bg-red-300 text-red-900 rounded-md'>Cancel</button>
+      {
+        order.transactionStatus === "pending" ? 
+        <>
+        <button className='px-4 py-2 bg-green-300 rounded-md text-green-900 cursor-pointer' onClick={() => handleDelivered(order._id)}>Delivered</button>
+        <button className='px-4 py-2 bg-red-300 text-red-900 rounded-md cursor-pointer'>Cancel</button>
+        </>
+        : 
+        <p className='px-4 py-2 bg-yellow-300 rounded-md text-yellow-900 cursor-not-allowed'>Item has been delivered</p>
+        
+        }
     </td>
   </tr>
   )
