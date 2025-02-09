@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import useGet from "../hooks/useGet";
 import OrderItem from "../components/orders/OrderItem";
 import PaginationControls from "../components/pagination/PaginationControls";
+import OrderFilter from "../components/orders/OrderFilter";
 
 export default function Order() {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filter, setFilter] = useState('all');
   const ordersPerPage = 20;
   const totalPages = Math.ceil(orders.length / ordersPerPage);
   const startingIndex = (currentPage - 1) * ordersPerPage;
@@ -17,6 +19,11 @@ export default function Order() {
     };
     fetchOrders();
   }, []);
+
+  // current page orders with filters
+  const filteredorders = orders && orders.filter((order) => {return filter === 'all' || order.transactionStatus === filter});
+  const currentOrders = filteredorders.slice(startingIndex, startingIndex + ordersPerPage);
+  console.log(currentOrders);
   
   return (
     <div className="bg-white p-8 rounded-md w-full">
@@ -24,29 +31,7 @@ export default function Order() {
         <div>
           <h2 className="text-gray-600 font-semibold text-3xl">Your Orders</h2>
         </div>
-        <div className="flex items-center justify-between">
-          <div className="flex bg-gray-50 items-center p-2 rounded-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <input
-              className="bg-gray-50 outline-none ml-1 block w-full "
-              type="text"
-              name=""
-              id=""
-              placeholder="search..."
-            />
-          </div>
-        </div>
+       <OrderFilter setFilter={setFilter} />
       </div>
       <div>
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -76,13 +61,18 @@ export default function Order() {
               </thead>
               <tbody>
                 {orders &&
-                  orders.slice(startingIndex, startingIndex + ordersPerPage).map((order) => {
-                    return <OrderItem order={order} />;
-                  })}
+                  currentOrders
+                    .map((order) => {
+                      return <OrderItem order={order} />;
+                    })}
               </tbody>
             </table>
           </div>
-          <PaginationControls setCurrentPage={setCurrentPage} currentPage={currentPage} totalPages={totalPages} />
+          <PaginationControls
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
         </div>
       </div>
     </div>

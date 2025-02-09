@@ -37,7 +37,7 @@ export default function Transactions() {
           <h3 className="text-xl font-bold text-gray-900 mb-2">Transactions</h3>
           <span className="text-base font-normal text-gray-500">This is a list of Transactions</span>
         </div>
-        <select className='text-lg bg-gray-200 px-2 py-1 rounded-md border-none outline-none cursor-pointer' name="" id="" onSelect={(event) => {
+        <select className='text-lg bg-gray-200 px-2 py-1 rounded-md border-none outline-none cursor-pointer' name="" id="" onChange={(event) => {
           setFilter(event.target.value);
         }}>
           <option value="Latest Transactions"> Latest Transactions</option>
