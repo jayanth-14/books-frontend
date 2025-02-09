@@ -35,9 +35,9 @@ function SearchBar({ setResults, handler }) {
 
               <SearchDropDown name="Search-By" options={['Title', 'Author', 'Publisher']} handler={setSearchBy}/>
 
-              <SearchDropDown name="Category" options={['Engineering', 'Diploma', 'Other']} handler={setCategory}/>
+              <SearchDropDown name="Category" options={['Engineering', 'Diploma', 'Other']} handler={setCategory} allTitle={"Any"}/>
 
-              <SearchDropDown name="Condition" options={['Like New', 'Good', 'Fair', 'Poor']} handler={setCondition}/>
+              <SearchDropDown name="Condition" options={['Like New', 'Good', 'Fair', 'Poor']} handler={setCondition} allTitle={"Any"}/>
 
               {/* <div className="flex flex-col">
                 <label for="date" className="text-sm font-medium text-stone-600">Published Year</label>
