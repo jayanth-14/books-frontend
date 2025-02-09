@@ -4,16 +4,20 @@ import OrderItem from "../components/orders/OrderItem";
 
 export default function Order() {
   const [orders, setOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ordersPerPage = 20;
+  const totalPages = Math.ceil(orders.length / ordersPerPage);
+  const startingIndex = (currentPage - 1) * ordersPerPage;
   useEffect(() => {
     const fetchOrders = async () => {
       const ordersUrl = import.meta.env.VITE_BACKEND + "orders";
       const response = await useGet(ordersUrl);
       console.log(response);
-
       setOrders(response.orders);
     };
     fetchOrders();
   }, []);
+  
   return (
     <div className="bg-white p-8 rounded-md w-full">
       <div className=" flex items-center justify-between pb-6">
@@ -72,12 +76,29 @@ export default function Order() {
               </thead>
               <tbody>
                 {orders &&
-                  orders.map((order) => {
+                  orders.slice(startingIndex, startingIndex + ordersPerPage).map((order) => {
                     return <OrderItem order={order} />;
                   })}
               </tbody>
             </table>
           </div>
+          <div className="flex justify-center mt-6">
+        <button 
+          onClick={() => setCurrentPage(previousPageNumber => previousPageNumber - 1)}
+          disabled={currentPage === 1}
+          className={`px-4 py-2 mx-1 rounded ${currentPage === 1 ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+        >
+          Prev
+        </button>
+        <span className="px-4 py-2 mx-1 font-semibold">Page {currentPage} of {totalPages}</span>
+        <button 
+          onClick={() => setCurrentPage(previousPageNumber => previousPageNumber + 1)} 
+          disabled={currentPage === totalPages}
+          className={`px-4 py-2 mx-1 rounded ${currentPage === totalPages ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+        >
+          Next
+        </button>
+      </div>
         </div>
       </div>
     </div>
