@@ -12,7 +12,7 @@ function Addbook() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
-  const [publishedYear, setPublishedYear] = useState("");
+  const [edition, setedition] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState();
@@ -26,7 +26,7 @@ function Addbook() {
     requestBody.append("description", description);
     requestBody.append("category", category);
     requestBody.append("condition", condition);
-    requestBody.append("publishedYear", publishedYear);
+    requestBody.append("edition", edition);
     requestBody.append("quantity", quantity);
     requestBody.append("price", price);
     requestBody.append("image", image);
@@ -113,7 +113,7 @@ function Addbook() {
                 <AddBookInput
                   title="Edition"
                   type="number"
-                  handler={setPublishedYear}
+                  handler={setedition}
                   className=" w-40"
                   placehoder="Ex: 1 for Edition 1"
                 />
