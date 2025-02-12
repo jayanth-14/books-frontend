@@ -24,10 +24,10 @@ const Home = () => {
               Shop Now
             </Link>
             <Link
-              to="/signin"
+              to="/explore"
               className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold border border-blue-600 hover:bg-blue-50 transition duration-300"
             >
-              Sign Up
+              Explore Books Near By Me
             </Link>
           </div>
         </div>
@@ -98,10 +98,10 @@ const Home = () => {
             Join our community today and start buying or selling old books to help save the environment.
           </p>
           <Link
-            to="/signin"
+            to="/dashboard/details"
             className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition duration-300"
           >
-            Get Started
+            Ready To Sell Books ?
           </Link>
         </div>
       </section>
