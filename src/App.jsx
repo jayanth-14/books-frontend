@@ -22,6 +22,7 @@ import SellerDetails from "./components/seller/Cards/SellerDetails";
 import Transactions from "./components/seller/transactions/Transactions";
 import AuthenticationComponet from "./pages/AuthenticationComponet";
 import ProtectedRoute from "./pages/AuthenticationComponet";
+import About from "./pages/About";
 
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -62,31 +63,32 @@ function App() {
         )}
 
 
-<Routes>
-  {/* Public Routes */}
-  <Route path="/" element={<Home />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/signin" element={<SignIn />} />
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="about" element={<About />} />
 
-  {/* Protected Routes */}
-  <Route element={<ProtectedRoute />}>
-    <Route path="/mybooks" element={<Mylist />} />
-    <Route path="/explore" element={<Explore />} />
-    <Route path="/profile" element={<Profile />} />
-    <Route path="/wishlist" element={<WishList />} />
-    <Route path="/search" element={<Search />} />
-    <Route path="/book/:id" element={<Book />} />
-    <Route path="/checkout" element={<CheckoutPage />} />
-    <Route path="/addbook" element={<Addbook />} />
-    <Route path="/orders" element={<Order />} />
-    <Route path="/dashboard" element={<DashBoard />}>
-      <Route path="transactions" element={<Transactions />} />
-      <Route path="details" element={<SellerDetails />} />
-      <Route path="mybooks" element={<Mylist />} />
-      <Route path="addbook" element={<Addbook />} />
-    </Route>
-  </Route>
-</Routes>;
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/mybooks" element={<Mylist />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/wishlist" element={<WishList />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/book/:id" element={<Book />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/addbook" element={<Addbook />} />
+            <Route path="/orders" element={<Order />} />
+            <Route path="/dashboard" element={<DashBoard />}>
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="details" element={<SellerDetails />} />
+            <Route path="mybooks" element={<Mylist />} />
+            <Route path="addbook" element={<Addbook />} />
+            </Route>
+          </Route>
+        </Routes>;
 
 
         <Footer />

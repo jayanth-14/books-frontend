@@ -13,6 +13,9 @@ function Navbar() {
         <li className=' text-gray-500 transition hover:text-gray-500/75 '>
           <NavLink to="/" >Home</NavLink>
         </li>
+        <li className=' text-gray-500 transition hover:text-gray-500/75 '>
+          <NavLink to="/about" >About us</NavLink>
+        </li>
         <li className="text-gray-500 transition hover:text-gray-500/75">
           <NavLink to="/explore">Explore</NavLink>
         </li>
