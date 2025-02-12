@@ -8,7 +8,7 @@ function CheckoutPage() {
   const [address, setAddress] = useState("");
   const { checkoutBook, setAlert } = useContext(Context);
   const navigate = useNavigate();
-
+  
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
@@ -38,10 +38,11 @@ function CheckoutPage() {
       console.log(data);
 
       setAlert([data]);
-      if (data.status === "success") {
+      if (data.status === "failed") {
         // navigate("/orders");
-        window.location.href = data.transactionLink;
+        return;
       }
+      window.location.href = data.transactionLink;
     } catch (error) {
       console.log("Error at checkout : ", error);
     }
@@ -113,7 +114,8 @@ function CheckoutPage() {
         </div>
 
         {/* Checkout Button */}
-        <button
+        <button 
+        // disabled={quantity <= book.}
           className="w-full py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
           onClick={async () => {
             await checkout();
