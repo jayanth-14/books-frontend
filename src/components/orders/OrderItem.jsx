@@ -3,8 +3,10 @@ import usePost from "../../hooks/usePost";
 import { Context } from "../../data/states";
 import OrderActions from "./OrderActions";
 import OrderActionButtons from "./OrderActionButtons";
+import moment from "moment";
 
 function OrderItem({ order }) {
+  const updatedDate =  moment(order.transactionDate);
   return (
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -16,7 +18,7 @@ function OrderItem({ order }) {
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">
-          {order.transactionDate}
+          {updatedDate.fromNow()}
         </p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">

@@ -1,7 +1,9 @@
+import moment from 'moment';
 import React from 'react'
 import { Link } from 'react-router';
 
 export default function TransactionItem({type, amount, date, title, id, user}) {
+  const updatedDate = moment(date);
   const message = type === 'Success' ? 'Payment from' : type === 'cancelled' ? 'Payment cancelled by' : 'Pending to Deliver to' ;
   return (
     <tr>
@@ -9,7 +11,7 @@ export default function TransactionItem({type, amount, date, title, id, user}) {
         {message} <span className="font-semibold">{user}</span>
       </td>
       <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-        {date}
+        {updatedDate.fromNow()}
       </td>
       <td className="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
         {amount}

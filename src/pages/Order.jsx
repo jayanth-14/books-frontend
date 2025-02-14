@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import useGet from "../hooks/useGet";
 import OrderItem from "../components/orders/OrderItem";
 import PaginationControls from "../components/pagination/PaginationControls";
-import OrderFilter from "../components/orders/OrderFilter";
-import OrderSorting from "../components/orders/OrderSorting";
+import OrderFilter from "../components/utilities/OrderFilter";
+import OrderSorting from "../components/utilities/OrderSorting";
 
 export default function Order() {
   const [orders, setOrders] = useState([]);
