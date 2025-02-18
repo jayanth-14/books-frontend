@@ -7,10 +7,11 @@ const handleDelivered = async (orderId, setAlert) => {
     });
     setAlert([response]);
   };
-  const handleCancelled = async (orderId, setAlert) => {
+  const handleCancelled = async (orderId, setAlert, message) => {
     const url = import.meta.env.VITE_BACKEND + "cancelled";
     const response = await usePost(url, {
       transactionId: orderId,
+      message
     });
     setAlert([response]);
   };

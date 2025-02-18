@@ -14,7 +14,7 @@ function OrderActions({id}) {
       </button>
       <button
         className="px-4 py-2 bg-orange-500 text-white font-semibold rounded-md cursor-pointer"
-        onClick={() => handleCancelled(id, setAlert)}
+        onClick={() => handleCancelled(id, setAlert, "Order cacelled by the User")}
       >
         Cancel
       </button>

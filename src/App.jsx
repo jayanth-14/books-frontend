@@ -23,6 +23,8 @@ import Transactions from "./components/seller/transactions/Transactions";
 import AuthenticationComponet from "./pages/AuthenticationComponet";
 import ProtectedRoute from "./pages/AuthenticationComponet";
 import About from "./pages/About";
+import Deliveries from "./pages/Deliveries";
+import Transaction from "./pages/Transaction";
 
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -81,8 +83,10 @@ function App() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/addbook" element={<Addbook />} />
             <Route path="/orders" element={<Order />} />
+            <Route path="/transaction/:id" element={<Transaction/>} />
             <Route path="/dashboard" element={<DashBoard />}>
             <Route path="transactions" element={<Transactions />} />
+            <Route path="deliveries" element={<Deliveries />} />
             <Route path="details" element={<SellerDetails />} />
             <Route path="mybooks" element={<Mylist />} />
             <Route path="addbook" element={<Addbook />} />

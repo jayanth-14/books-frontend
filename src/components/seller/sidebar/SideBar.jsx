@@ -1,9 +1,11 @@
 import React from 'react'
 import SideBarItem from './SideBarItem'
 import { FaPlus } from 'react-icons/fa'
-import { BiSolidDashboard } from 'react-icons/bi'
+import { BiNotification, BiSolidDashboard } from 'react-icons/bi'
 import { ImBooks } from 'react-icons/im'
-import { TbTransactionRupee } from 'react-icons/tb'
+import { TbTransactionRupee, TbTruckDelivery } from 'react-icons/tb'
+import { IoNotifications } from 'react-icons/io5'
+import { CiDeliveryTruck } from 'react-icons/ci'
 
 export default function SideBar() {
   return (
@@ -16,7 +18,7 @@ export default function SideBar() {
             <SideBarItem title={"Listed Books"} to={"mybooks"} icon={<ImBooks className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
             <SideBarItem title={"Add New Book"} to={"addbook"} icon={<FaPlus className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
             <SideBarItem title={"Seller Tranactions"} to={"transactions"} icon={<TbTransactionRupee className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
-            
+            <SideBarItem title={"Deliveries"} to={"deliveries"} icon={<TbTruckDelivery className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"/>} />
             </ul>
 
           </div>

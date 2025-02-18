@@ -4,9 +4,10 @@ import { Context } from "../../data/states";
 import OrderActions from "./OrderActions";
 import OrderActionButtons from "./OrderActionButtons";
 import moment from "moment";
+import DeliveryActions from "./DeliveryActions";
 
-function OrderItem({ order }) {
-  const updatedDate =  moment(order.transactionDate);
+function OrderItem({ order, type = "order" }) {
+  const updatedDate = moment(order.transactionDate);
   return (
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -16,6 +17,15 @@ function OrderItem({ order }) {
           </div>
         </div>
       </td>
+      {type === "delivery" && (
+        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+          <div className="flex items-center">
+            <div className="ml-3">
+              <p className="text-gray-900 whitespace-no-wrap">{order.userName || "No Name Found"}</p>
+            </div>
+          </div>
+        </td>
+      )}
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">
           {updatedDate.fromNow()}
@@ -39,7 +49,11 @@ function OrderItem({ order }) {
         </span>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm flex gap-1">
-       <OrderActionButtons status={order.transactionStatus} id={order._id}/>
+        {type === "delivery" ? (
+          <DeliveryActions id={order._id} />
+        ) : (
+          <OrderActionButtons status={order.transactionStatus} id={order._id} />
+        )}
       </td>
     </tr>
   );
