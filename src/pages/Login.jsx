@@ -19,10 +19,10 @@ function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLogined === true) {
+    if (isLogined) {
       navigate("/");
     }
-  }, [isLogined]);
+  }, [isLogined, navigate]);
 
   useEffect(() => {
     generateCaptcha();
@@ -30,44 +30,19 @@ function Login() {
 
   const generateCaptcha = () => {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let captchaValue = "";
-    for (let i = 0; i < 6; i++) {
-      captchaValue += characters[Math.floor(Math.random() * characters.length)];
-    }
+    let captchaValue = Array.from({ length: 6 }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
     setCaptcha(captchaValue);
   };
 
-  const renderCaptcha = () => {
-    return (
-      <div
-        style={{
-          fontSize: "24px",
-          fontWeight: "bold",
-          fontFamily: "monospace",
-          color: "#000",
-          backgroundColor: "#f0f0f0",
-          padding: "10px",
-          borderRadius: "5px",
-          display: "inline-block",
-          transform: "rotate(-2deg)",
-          letterSpacing: "5px", 
-          textShadow: "2px 2px 2px rgba(0,0,0,0.2)",
-        }}
-      >
-        {captcha.split("").map((char, index) => (
-          <span
-            key={index}
-            style={{
-              transform: `rotate(${Math.random() * 10 - 5}deg)`,
-              display: "inline-block",
-            }}
-          >
-            {char}
-          </span>
-        ))}
-      </div>
-    );
-  };
+  const renderCaptcha = () => (
+    <div className="text-2xl font-bold font-mono text-gray-800 bg-gray-100 p-3 rounded-md inline-block tracking-widest shadow-md">
+      {captcha.split("").map((char, index) => (
+        <span key={index} className="inline-block transform rotate-[${Math.random() * 10 - 5}deg]">
+          {char}
+        </span>
+      ))}
+    </div>
+  );
 
   const handleRefreshCaptcha = () => {
     generateCaptcha();
@@ -76,7 +51,7 @@ function Login() {
   const submitLogin = (event) => {
     event.preventDefault();
     if (userCaptchaInput !== captcha) {
-      alert("Invalid CAPTCHA. Please try again.");
+      setAlert({ type: "error", message: "Invalid CAPTCHA. Please try again." });
       generateCaptcha();
       return;
     }
@@ -84,24 +59,24 @@ function Login() {
   };
 
   return (
-    <section className="login m-auto w-96 border-2 rounded-md p-4 flex flex-col gap-2 mt-10">
+    <section className="login mx-auto w-96 border border-gray-300 rounded-lg p-6 flex flex-col gap-4 mt-10 bg-white shadow-xl">
       <FormNav />
-      <form className="flex flex-col gap-2" onSubmit={submitLogin}>
+      <form className="flex flex-col gap-4" onSubmit={submitLogin}>
         <InputField title="Email" onChange={setEmail} type="email" />
         <PasswordField title="Password" onChange={setPassword} />
-        <div className="captcha-container">
-          <label>CAPTCHA</label>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div className="flex flex-col gap-2">
+          <label className="font-semibold text-gray-700">CAPTCHA</label>
+          <div className="flex items-center gap-3">
             {renderCaptcha()}
-            <button type="button" onClick={handleRefreshCaptcha} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",}} title="Refresh CAPTCHA">
+            <button type="button" onClick={handleRefreshCaptcha} className="p-2 bg-gray-200 rounded-md hover:bg-gray-300 transition" title="Refresh CAPTCHA">
               <RefreshCcw size={20} />
             </button>
           </div>
           <CaptchaField title="Enter CAPTCHA" onChange={setUserCaptchaInput} type="text"/>
         </div>
-        <button type="submit" className="w-full">
-          <ButtonPrimary>Login</ButtonPrimary>
-        </button>
+        <ButtonPrimary className="w-full py-3 text-lg font-semibold bg-blue-500 text-white rounded-lg shadow-md transition transform hover:scale-105 hover:bg-blue-600">
+          Login
+        </ButtonPrimary>
       </form>
     </section>
   );

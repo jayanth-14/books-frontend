@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import ButtonPrimary from "../../buttons/buttonPrimary";
 import AddBookInput from "./AddBookInput";
 import AddBookDrop from "./AddBookDrop";
 import ImageUpload from "./ImageUpload";
 import { Context } from "../../../data/states";
-import SearchDropDown from "../../search/SearchDropDown";
-function Addbook() {
+
+function AddBook() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [publisher, setPublisher] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
-  const [edition, setedition] = useState("");
+  const [edition, setEdition] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState();
@@ -39,99 +39,86 @@ function Addbook() {
     });
     const data = await response.json();
     if (data.status === "success") {
-      setAlert([{ type: "success", message: "Book is added Successfully!" }]);
+      setAlert([{ type: "success", message: "Book added successfully!" }]);
       return;
     }
-    setAlert([{ type: "error", message: "Book is not added! Successfully!" }]);
+    setAlert([{ type: "error", message: "Failed to add book!" }]);
   };
 
   return (
-    <div className="p-20 flex flex-col justify-center items-center">
-      <div className="m-10 w-screen max-w-screen-md">
-        <div className="flex flex-col">
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
-            <div className="relative mb-10 w-full flex  items-center justify-between border-b-4">
-              <label className="h-12 w-full py-4 pr-40 pl-1 flex flex-row justify-center items-center">
-                <h1 className="text-2xl font-semibold mx-auto">Add New Book</h1>
-              </label>
-            </div>
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                handleForm();
-              }}
-            >
-              <AddBookInput
-                title="BOOK NAME"
-                placehoder="Ex: The Hard Way Of Living"
-                handler={setTitle}
-              />
-              <AddBookInput
-                title="AUTHOR NAME"
-                placehoder="Ex: Isaac MewTon"
-                handler={setAuthor}
-              />
-              <AddBookInput
-                title="PUBLISHER"
-                placehoder="Ex: Falcone Publishers"
-                handler={setPublisher}
-              />
-              <div className="relative mb-10 w-full flex items-start justify-between rounded-md">
-                <label className="text-lg font-medium text-black-600 w-56 after:content-['*'] after:text-red-500">
-                  DESCRIPTION :{" "}
-                </label>
-                <textarea
-                  type="textbox"
-                  className="h-32 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pl-5 shadow-sm outline-none"
-                  name="description"
-                  onChange={(event) => {
-                    setDescription(event.target.value);
-                  }}
-                >
-                  {" "}
-                </textarea>
-              </div>
-              <AddBookDrop
-                conditionHandler={setCondition}
-                categoryHandler={setCategory}
-              />
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-2">
-                <AddBookInput
-                  title="QUANTITY"
-                  type="number"
-                  handler={setQuantity}
-                  placehoder="Ex: 1"
-                />
-                <AddBookInput
-                  title="PRICE"
-                  type="number"
-                  handler={setPrice}
-                  placehoder="Ex: 250"
-                />
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-2">
-                <AddBookInput
-                  title="Edition"
-                  type="number"
-                  handler={setedition}
-                  className=" w-40"
-                  placehoder="Ex: 1 for Edition 1"
-                />
-                {/* <SearchDropDown name={"type"} options={["education", "story", "auto-biography", "biography"]} className={" flex"}  /> */}
-
-              <ImageUpload handler={setImage} />
-              </div>
-              <div className="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
-                <ButtonPrimary className=" w-full rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring">
-                  {" "}
-                  Add Book
-                </ButtonPrimary>
-              </div>
-            </form>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+          Add New Book
+        </h1>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleForm();
+          }}
+          className="space-y-5"
+        >
+          <AddBookInput
+            title="Book Name"
+            placeholder="Ex: The Hard Way Of Living"
+            handler={setTitle}
+          />
+          <AddBookInput
+            title="Author Name"
+            placeholder="Ex: Isaac Newton"
+            handler={setAuthor}
+          />
+          <AddBookInput
+            title="Publisher"
+            placeholder="Ex: Falcone Publishers"
+            handler={setPublisher}
+          />
+          <div>
+            <label className="text-lg font-medium text-gray-700 block mb-2">
+              Description <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              className="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:ring focus:ring-blue-200"
+              rows="4"
+              onChange={(event) => setDescription(event.target.value)}
+            ></textarea>
           </div>
-        </div>
+          <AddBookDrop
+            conditionHandler={setCondition}
+            categoryHandler={setCategory}
+          />
+          <div className="grid grid-cols-2 gap-5">
+            <AddBookInput
+              title="Quantity"
+              type="number"
+              handler={setQuantity}
+              placeholder="Ex: 1"
+            />
+            <AddBookInput
+              title="Price"
+              type="number"
+              handler={setPrice}
+              placeholder="Ex: 250"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-5">
+            <AddBookInput
+              title="Edition"
+              type="number"
+              handler={setEdition}
+              placeholder="Ex: 1 for Edition 1"
+            />
+            <ImageUpload handler={setImage} />
+          </div>
+          <div className="flex justify-end">
+            <ButtonPrimary className="rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 transition">
+              Add Book
+            </ButtonPrimary>
+          </div>
+        </form>
       </div>
     </div>
   );
 }
-export default Addbook;
+
+export default AddBook;

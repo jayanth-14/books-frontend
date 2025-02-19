@@ -1,57 +1,47 @@
-import React from 'react'
+import React from "react";
 
 export default function ProfileDetails({ profile }) {
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg border">
-      <div className="px-16 py-5 sm:px-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
-          User Profile
-        </h3>
+    <div className="bg-white shadow-md rounded-lg border max-w-xl mx-auto">
+      <div className="bg-gray-100 px-6 py-4 rounded-t-lg">
+        <h3 className="text-xl font-semibold text-gray-800">User Profile</h3>
       </div>
-      <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-        <dl className="sm:divide-y sm:divide-gray-200">
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Full name
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+      <div className="border-t border-gray-200 px-6 py-4">
+        <dl className="divide-y divide-gray-200">
+          <div className="py-3 grid grid-cols-3 gap-4">
+            <dt className="text-sm font-medium text-gray-600">Full Name</dt>
+            <dd className="text-sm text-gray-900 col-span-2">
               {profile?.fullName}
             </dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Email address
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <div className="py-3 grid grid-cols-3 gap-4">
+            <dt className="text-sm font-medium text-gray-600">Email Address</dt>
+            <dd className="text-sm text-gray-900 col-span-2">
               {profile?.email}
             </dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Phone number
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {profile?.phone ? profile.phone : "No Phone Number Available"}
+          <div className="py-3 grid grid-cols-3 gap-4">
+            <dt className="text-sm font-medium text-gray-600">Phone Number</dt>
+            <dd className="text-sm text-gray-900 col-span-2">
+              {profile?.phone || "No Phone Number Available"}
             </dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Address
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {profile?.address ? profile.address : "No Address Available"}
+          <div className="py-3 grid grid-cols-3 gap-4">
+            <dt className="text-sm font-medium text-gray-600">Address</dt>
+            <dd className="text-sm text-gray-900 col-span-2">
+              {profile?.address || "No Address Available"}
             </dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-blue-300">
-            <dt className="text-md font-semibold text-black">
+          <div className="py-4 px-4 bg-blue-100 rounded-b-lg">
+            <dt className="text-md font-semibold text-blue-900">
               Available Credits
             </dt>
-            <dd className="mt-1 text-lg font-semibold text-gray-900 sm:mt-0 sm:col-span-2">
-              {profile?.credits ? profile.credits : "0.00"}
+            <dd className="text-lg font-bold text-gray-900">
+              {profile?.credits || "0.00"}
             </dd>
           </div>
         </dl>
       </div>
     </div>
-  )
+  );
 }

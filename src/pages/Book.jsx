@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { data, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import LoadingPage from "./Loading";
 import useGet from "../hooks/useGet";
 import { HiHeart } from "react-icons/hi";
@@ -14,28 +14,29 @@ function Book() {
   const [book, setBook] = useState(null);
   const navigate = useNavigate();
   const { setAlert, setCheckoutBook } = useContext(Context);
+
   useEffect(() => {
     const fetchBook = async () => {
       const url = import.meta.env.VITE_BACKEND + "book/" + id;
       const data = await useGet(url);
       console.log(data);
-      
       setBook(data.book);
     };
     fetchBook();
   }, []);
+
   return (
     <div className="book">
       {book ? (
-        <section className="text-gray-700 body-font overflow-hidden bg-white ">
+        <section className="text-gray-700 body-font overflow-hidden bg-white">
           <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt={`book-${id}`}
                 className="lg:w-1/2 w-full object-contain object-center rounded border border-gray-200 h-80 py-4"
                 src={
-                  getImage(book.image)
-                    || "https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-image-vector-illustration-isolated-png-image_4979075.jpg"
+                  getImage(book.image) ||
+                  "https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-image-vector-illustration-isolated-png-image_4979075.jpg"
                 }
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -82,25 +83,33 @@ function Book() {
                   >
                     Buy Now
                   </button>
-                  {!book.isWishlist ? <button
-                    onClick={() => {
-                      addToWishList(id, setAlert);
-                    }}
-                    className={`rounded-md  h-10 bg-gray-200 p-3 border-0 inline-flex items-center justify-start text-gray-500 ml-4 hover:bg-gray-700 hover:text-gray-100`+ (book.isOwnedBook ? " bg-gray-500 pointer-events-none text-white" : "")}
-                  >
-                    <HiHeart className="text-2xl" />{" "}
-                    <span className="text-base">Add to Wishlist</span> 
-                  </button>
-                  : 
-                  <button
-                    onClick={() => {
-                      removeFromWishList(id, setAlert);
-                    }}
-                    className={`rounded-md  h-10 bg-gray-200 p-3 border-0 inline-flex items-center justify-start text-gray-500 ml-4 hover:bg-gray-700 hover:text-gray-100`+ (book.isOwnedBook ? " bg-gray-500 pointer-events-none text-white" : "")}
-                  >
-                    <HiHeart className="text-2xl" />{" "}
-                    <span className="text-base">Remove From Wishlist</span> 
-                  </button>}
+                  {!book.isWishlist ? (
+                    <button
+                      onClick={() => {
+                        addToWishList(id, setAlert);
+                      }}
+                      className={
+                        `rounded-md h-10 bg-gray-200 p-3 border-0 inline-flex items-center justify-start text-gray-500 ml-4 hover:bg-gray-700 hover:text-gray-100` +
+                        (book.isOwnedBook ? " bg-gray-500 pointer-events-none text-white" : "")
+                      }
+                    >
+                      <HiHeart className="text-2xl" />{" "}
+                      <span className="text-base">Add to Wishlist</span>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        removeFromWishList(id, setAlert);
+                      }}
+                      className={
+                        `rounded-md h-10 bg-gray-200 p-3 border-0 inline-flex items-center justify-start text-gray-500 ml-4 hover:bg-gray-700 hover:text-gray-100` +
+                        (book.isOwnedBook ? " bg-gray-500 pointer-events-none text-white" : "")
+                      }
+                    >
+                      <HiHeart className="text-2xl" />{" "}
+                      <span className="text-base">Remove From Wishlist</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
