@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ProfileDetails({ profile }) {
   return (
-    <div className="bg-white shadow-md rounded-lg border max-w-xl mx-auto">
+    <div className="bg-white shadow-md rounded-lg border  mx-auto">
       <div className="bg-gray-100 px-6 py-4 rounded-t-lg">
         <h3 className="text-xl font-semibold text-gray-800">User Profile</h3>
       </div>
@@ -32,14 +32,7 @@ export default function ProfileDetails({ profile }) {
               {profile?.address || "No Address Available"}
             </dd>
           </div>
-          <div className="py-4 px-4 bg-blue-100 rounded-b-lg">
-            <dt className="text-md font-semibold text-blue-900">
-              Available Credits
-            </dt>
-            <dd className="text-lg font-bold text-gray-900">
-              {profile?.credits || "0.00"}
-            </dd>
-          </div>
+          
         </dl>
       </div>
     </div>

@@ -14,7 +14,7 @@ function PasswordField(params) {
     <div className="passwordField">
       <label className='flex flex-col gap-1'> {params.title} :
         <div className='rounded bg-gray-200 w-full h-8 px-2 flex flex-row justify-between items-center'>
-          <input type="password" placeholder={`${params.title}`} className='outline-none bg-transparent w-full' minlength="6" onChange={(event) => params.onChange(event.target.value)} required ref={field}/>
+          <input type="password" placeholder={`${params.title}`} className='outline-none bg-transparent w-full select-none' minlength="6" onChange={(event) => params.onChange(event.target.value)} required ref={field}/>
           <FaEye onClick={displaypassword} className='cursor-pointer' />
         </div>
       </label>

@@ -35,9 +35,9 @@ function Login() {
   };
 
   const renderCaptcha = () => (
-    <div className="text-2xl font-bold font-mono text-gray-800 bg-gray-100 p-3 rounded-md inline-block tracking-widest shadow-md">
+    <div aria-selected="false" className="text-2xl font-bold font-mono text-gray-800 bg-gray-100 p-3 rounded-md inline-block tracking-widest shadow-md">
       {captcha.split("").map((char, index) => (
-        <span key={index} className="inline-block transform rotate-[${Math.random() * 10 - 5}deg]">
+        <span key={index}  className="inline-block select-none transform rotate-[${Math.random() * 10 - 5}deg]">
           {char}
         </span>
       ))}

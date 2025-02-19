@@ -5,7 +5,6 @@ import { Context } from "../data/states";
 function ProtectedRoute() {
   const { isLogined } = useContext(Context);
   sessionStorage.setItem('username', 'jayanth');
-  console.log(sessionStorage.getItem('userId'));
   
   return isLogined ? <Outlet /> : <Navigate to="/login" replace />;
 }

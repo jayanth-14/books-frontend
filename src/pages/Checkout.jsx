@@ -30,6 +30,8 @@ function CheckoutPage() {
           sellerId: checkoutBook.sellerId,
         }),
       });
+      
+      
       const data = await response.json();
       console.log(data);
       setAlert([data]);
