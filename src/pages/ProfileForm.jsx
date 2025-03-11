@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { useNavigate } from "react-router";
+import InputField from "../components/form/InputField";
+import ButtonPrimary from "../components/buttons/buttonPrimary";
+import PasswordField from "../components/form/PasswordField";
+import updateUser from "../functionalities/updateUser";
+import { Context } from "../data/states";
+import { FaArrowCircleRight } from "react-icons/fa";
 
 function ProfileCompletionAlert() {
   <div role="alert" className="rounded-xl border border-gray-100 bg-white p-4">
@@ -28,46 +34,18 @@ function ProfileCompletionAlert() {
 }
 
 function ProfileForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
-  const [occupation, setOccupation] = useState("");
+  const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [pin, setPin] = useState("");
   const [isSuccess, setIsSuccess] = useState(null);
-
-  const profileData = {
-    firstName: firstName,
-    lastName: lastName,
-    phone: phone,
-    occupation: occupation,
-  };
-
-  const locationDetails = {
-    address: address,
-    city: city,
-    state: state,
-    country: country,
-    pin: pin,
-  };
-
   const navigate = useNavigate();
+  
 
   const handleProfileSubmission = async (event) => {
     event.preventDefault();
-    try {
-      const url = import.meta.env.VITE_BACKEND + "signup";
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ profileData, locationDetails }),
-      });
-      const data = await response.json();
+    try{
+      const data = await updateUser(fullName, phone, password, address);
       if (data.status === "success") {
         setIsSuccess(true);
         setTimeout(() => {
@@ -82,45 +60,25 @@ function ProfileForm() {
   return (
     <section className="login m-auto w-96 border-2 rounded-md p-4 flex flex-col gap-2 mt-10">
       {isSuccess && <ProfileCompletionAlert />}
-      <FormNav />
       <form
         className="flex flex-col gap-2 divide-y-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          LoginUser(
-            email.toLowerCase(),
-            password,
-            users,
-            setUser,
-            setIsLogined
-          );
-        }}
-      >
+        onSubmit={handleProfileSubmission}>
         <div>
-          <h1 className="text-lg text-blueThree font-semiBold">
-            Profile Completion
+          <h1 className="text-lg text-blueThree font-bold">
+            Profile Updation
           </h1>
-          <InputField title="First Name" onChange={setFirstName} type="text" />
-          <InputField title="Last Name" onChange={setLastName} type="text" />
-          <InputField title="Phone" onChange={setPhone} type="number" />
-          <InputField title="Occupation" onChange={setOccupation} type="text" />
-        </div>
-        <div>
-          <h1 className="text-lg text-blueThree font-semiBold">
-            Location Details
-          </h1>
+          <InputField title="New Full Name" onChange={setFullName} type="text" />
+          <InputField title="New Phone" onChange={setPhone} type="number" />
+          <PasswordField title="New Password" onChange={setPassword}/>
           <InputField
             title="Address Line 1"
             onChange={setAddress}
             type="text"
           />
-          <InputField title="City" onChange={setCity} type="text" />
-          <InputField title="State" onChange={setState} type="text" />
-          <InputField title="Country" onChange={setCountry} type="text" />
-          <InputField title="pincode" onChange={setPin} type="text" />
         </div>
+
         <button type="submit" className="w-full">
-          <ButtonPrimary> Login</ButtonPrimary>
+          <ButtonPrimary>Update Profile</ButtonPrimary>
         </button>
       </form>
     </section>

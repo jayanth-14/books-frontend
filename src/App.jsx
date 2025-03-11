@@ -25,6 +25,7 @@ import ProtectedRoute from "./pages/AuthenticationComponet";
 import About from "./pages/About";
 import Deliveries from "./pages/Deliveries";
 import Transaction from "./pages/Transaction";
+import ProfileForm from "./pages/ProfileForm";
 
 function App() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -77,6 +78,7 @@ function App() {
             <Route path="/mybooks" element={<Mylist />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile-update" element={<ProfileForm />} />
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/search" element={<Search />} />
             <Route path="/book/:id" element={<Book />} />
