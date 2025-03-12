@@ -13,6 +13,8 @@ const handleDelivered = async (orderId, setAlert) => {
       transactionId: orderId,
       message
     });
+    console.log("cancel response : ", response);
+    
     setAlert([response]);
   };
 

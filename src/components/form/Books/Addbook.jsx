@@ -19,8 +19,10 @@ function AddBook() {
   const { setAlert } = useContext(Context);
 
   const handleForm = async () => {
-    const requestBody = new FormData();
-    requestBody.append("title", title);
+    try {
+      
+      const requestBody = new FormData();
+      requestBody.append("title", title);
     requestBody.append("author", author);
     requestBody.append("publisher", publisher);
     requestBody.append("description", description);
@@ -30,7 +32,6 @@ function AddBook() {
     requestBody.append("quantity", quantity);
     requestBody.append("price", price);
     requestBody.append("image", image);
-
     const url = import.meta.env.VITE_BACKEND + "addbook";
     const response = await fetch(url, {
       method: "POST",
@@ -38,11 +39,17 @@ function AddBook() {
       body: requestBody,
     });
     const data = await response.json();
+    console.log(data);
+    
     if (data.status === "success") {
       setAlert([{ type: "success", message: "Book added successfully!" }]);
       return;
     }
     setAlert([{ type: "error", message: "Failed to add book!" }]);
+  } catch (error) {
+   console.log("error at adding new book");
+    
+  }
   };
 
   return (

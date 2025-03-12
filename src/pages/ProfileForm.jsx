@@ -67,10 +67,10 @@ function ProfileForm() {
           <h1 className="text-lg text-blueThree font-bold">
             Profile Updation
           </h1>
-          <InputField title="New Full Name" onChange={setFullName} type="text" />
-          <InputField title="New Phone" onChange={setPhone} type="number" />
-          <PasswordField title="New Password" onChange={setPassword}/>
-          <InputField
+          <InputField required="false" title="New Full Name" onChange={setFullName} type="text" />
+          <InputField required="false" title="New Phone" onChange={setPhone} type="number" />
+          <PasswordField required="false" title="New Password" onChange={setPassword}/>
+          <InputField required="false"
             title="Address Line 1"
             onChange={setAddress}
             type="text"
