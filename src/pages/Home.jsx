@@ -7,7 +7,7 @@ const Home = () => {
   const { isLogined } = useContext(Context);
   return (
     <div className="h-screen px-10 md:px-32 flex flex-col md:flex-row items-center gap-10 justify-center md:justify-between bg-cover bg-center bg-gray-100">
-      <img src="./public/relaxed_reading.svg" alt="Reading" className="w-full md:w-[450px] lg:w-[500px] h-auto drop-shadow-lg" />
+      <img src="https://raw.githubusercontent.com/Swaroop0915/gitImages/e1522d40992068ebe70b512557ca3382e4aa7bce/Illustrations/relaxed_reading.svg" alt="Reading" className="w-full md:w-[450px] lg:w-[500px] h-auto drop-shadow-lg" />
       <div className="flex flex-col text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
           Welcome to 
