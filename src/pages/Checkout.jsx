@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 function CheckoutPage() {
   const [quantity, setQuantity] = useState(1);
   const [address, setAddress] = useState("");
+  const [showFullDescription, setShowFullDescription] = useState(false); // State for toggling description
   const { checkoutBook, setAlert } = useContext(Context);
   const navigate = useNavigate();
 
@@ -30,8 +31,7 @@ function CheckoutPage() {
           sellerId: checkoutBook.sellerId,
         }),
       });
-      
-      
+
       const data = await response.json();
       console.log(data);
       setAlert([data]);
@@ -51,6 +51,12 @@ function CheckoutPage() {
     fetchAddress();
   }, []);
 
+  // Truncate the description if it's too long
+  const truncatedDescription =
+    checkoutBook?.description && checkoutBook.description.length > 100 && !showFullDescription
+      ? checkoutBook.description.slice(0, 100) + "..."
+      : checkoutBook?.description;
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
@@ -63,7 +69,17 @@ function CheckoutPage() {
           <h3 className="text-xl font-semibold text-gray-700">
             {checkoutBook?.title}
           </h3>
-          <p className="text-sm text-gray-500 mb-2">{checkoutBook?.description}</p>
+          <p className="text-sm text-gray-500 mb-2">
+            {truncatedDescription}
+            {checkoutBook?.description && checkoutBook.description.length > 100 && (
+              <button
+                onClick={() => setShowFullDescription(!showFullDescription)}
+                className="text-blue-600 hover:text-blue-800 focus:outline-none ml-2"
+              >
+                {showFullDescription ? "Read Less" : "Read More"}
+              </button>
+            )}
+          </p>
           <p className="text-lg font-bold text-blue-600">
             ₹{checkoutBook?.price}
           </p>
