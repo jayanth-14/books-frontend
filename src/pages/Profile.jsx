@@ -17,11 +17,11 @@ function Profile() {
     }, []) 
     return (
         <>
-            <section className="profile px-24 mt-10 w-screen">
-                <div className='flex flex-row gap-4'>
+            <section className="profile p-4 mt-10 w-screen">
+                {/* <div className='flex flex-row gap-4'> */}
                 {/* <Avatar /> */}
                 <ProfileDetails profile={profile} />
-                </div>
+                {/* </div> */}
             </section>
         </>
     )

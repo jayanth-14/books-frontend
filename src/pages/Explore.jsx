@@ -5,14 +5,14 @@ import LoadingPage from "./Loading";
 function Explore() {
   const [result, setResults] = useState([]);
   const [noBooksFound, setNoBooksFound] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     handleExplore();
   }, []);
 
   const handleExplore = async () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     try {
       setNoBooksFound(false);
       const booksUrl = import.meta.env.VITE_BACKEND + "books";
@@ -30,35 +30,44 @@ function Explore() {
       }
 
       const data = await response.json();
-      console.log("Fetched data:", data); 
+      console.log("Fetched data:", data);
 
       if (!data.books || data.books.length === 0) {
         setNoBooksFound(true);
       } else {
         setResults(data.books);
         setNoBooksFound(false);
-        console.log("loading finished");
       }
     } catch (error) {
       console.error("Error fetching books:", error);
+      setNoBooksFound(true);
     } finally {
       setIsLoading(false);
     }
   };
 
-
   return (
-    <div>
-      {isLoading ? (
-        <LoadingPage />
-      ) : (
-        <>
-          <div className="text-center p-10">
-            <h1 className="font-bold text-4xl mb-4">Explore Books Near You</h1>
-          </div>
-          <BookList data={result} />
-        </>
-      )}
+    <div className="min-h-screen bg-gray-100 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {isLoading ? (
+          <LoadingPage />
+        ) : (
+          <>
+            <div className="text-center p-6">
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Explore Books Near You
+              </h1>
+            </div>
+            {noBooksFound ? (
+              <div className="text-center text-gray-600">
+                <p>No books found. Please try again later.</p>
+              </div>
+            ) : (
+              <BookList data={result} />
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

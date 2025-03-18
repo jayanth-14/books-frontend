@@ -1,30 +1,22 @@
-import React, { useContext } from 'react'
-import { FaBars, FaSearch } from 'react-icons/fa';
-import { NavLink } from 'react-router';
-import { Context } from '../../data/states';
+import { Link } from "react-router-dom";
 
-
-function Navbar() {
-
+function Navbar({ className }) {
   return (
-    <nav aria-label="Global" className="hidden md:block">
-      {/* <Categories /> */}
-      <ul className='flex items-center gap-6 text-sm'>
-        <li className=' text-gray-500 transition hover:text-gray-500/75 '>
-          <NavLink to="/" >Home</NavLink>
-        </li>
-        <li className=' text-gray-500 transition hover:text-gray-500/75 '>
-          <NavLink to="/about" >About us</NavLink>
-        </li>
-        <li className="text-gray-500 transition hover:text-gray-500/75">
-          <NavLink to="/explore">Explore</NavLink>
-        </li>
-        <li className="text-gray-500 transition hover:text-gray-500/75">
-          <NavLink to="/search">Search</NavLink>
-        </li>
-      </ul>
+    <nav className={`${className}`}>
+      <Link to="/" className="text-gray-700 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">
+        Home
+      </Link>
+      <Link to="/explore" className="text-gray-700 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">
+        Explore
+      </Link>
+      <Link to="/search" className="text-gray-700 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">
+        Search
+      </Link>
+      <Link to="/about" className="text-gray-700 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">
+        About
+      </Link>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

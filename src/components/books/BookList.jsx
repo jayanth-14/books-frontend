@@ -5,7 +5,7 @@ import PaginationControls from "../pagination/PaginationControls";
 function BookList({ data }) {
   const booksPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const totalPages = Math.ceil(data.length / booksPerPage);
   const startIndex = (currentPage - 1) * booksPerPage;
   const currentPageBooks = data.slice(startIndex, startIndex + booksPerPage);
@@ -18,7 +18,11 @@ function BookList({ data }) {
         ))}
       </div>
       <div className="flex justify-center mt-6">
-        <PaginationControls setCurrentPage={setCurrentPage} currentPage={currentPage} totalPages={totalPages} />
+        <PaginationControls
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
       </div>
     </div>
   );
