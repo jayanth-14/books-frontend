@@ -8,13 +8,7 @@ function Search() {
   const [result, setResults] = useState([]);
   const [noBooksFound, setNoBooksFound] = useState(false);
 
-  const handleSearch = async (
-    searchText,
-    searchBy,
-    category,
-    condition,
-    setResults
-  ) => {
+  const handleSearch = async (searchText, searchBy, category, condition, setResults) => {
     try {
       setNoBooksFound(false);
       const url =
@@ -24,28 +18,27 @@ function Search() {
       if (data.books.length === 0) {
         setNoBooksFound(true);
         setResults([]);
-        return;
+      } else {
+        setNoBooksFound(false);
+        setResults(data.books);
       }
-      setNoBooksFound(false);
-      setResults(data.books);
     } catch (error) {
       setNoBooksFound(true);
       setResults([]);
-      console.log("error message: " + error);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6 py-12">
-      <div className="w-full max-w-4xl bg-white p-8 shadow-lg rounded-lg">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
           Search for Books
         </h1>
         <SearchBar setResults={setResults} handler={handleSearch} />
-      </div>
-
-      <div className="w-full max-w-4xl mt-8">
-        {noBooksFound ? <NoBooksResult /> : <BookList data={result} />}
+        <div className="mt-8">
+          {noBooksFound ? <NoBooksResult /> : <BookList data={result} />}
+        </div>
       </div>
     </div>
   );

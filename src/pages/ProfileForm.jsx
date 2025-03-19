@@ -67,6 +67,7 @@ function ProfileForm() {
           <h1 className="text-lg text-blueThree font-bold">
             Profile Updation
           </h1>
+          <InputField required="false" title="New Full Name" onChange={setFullName} type="text" />
           <InputField required="false" title="New Phone" onChange={setPhone} type="number" />
           <PasswordField required="false" title="New Password" onChange={setPassword}/>
           <InputField required="false"
