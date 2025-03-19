@@ -34,10 +34,10 @@ function ProfileCompletionAlert() {
 }
 
 function ProfileForm() {
-  const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
+  const [changeLocation,setChangeLocation] = useState(false);
   const [isSuccess, setIsSuccess] = useState(null);
   const navigate = useNavigate();
   
@@ -45,7 +45,7 @@ function ProfileForm() {
   const handleProfileSubmission = async (event) => {
     event.preventDefault();
     try{
-      const data = await updateUser(fullName, phone, password, address);
+      const data = await updateUser( phone, password, address, changeLocation);
       if (data.status === "success") {
         setIsSuccess(true);
         setTimeout(() => {
@@ -67,7 +67,6 @@ function ProfileForm() {
           <h1 className="text-lg text-blueThree font-bold">
             Profile Updation
           </h1>
-          <InputField required="false" title="New Full Name" onChange={setFullName} type="text" />
           <InputField required="false" title="New Phone" onChange={setPhone} type="number" />
           <PasswordField required="false" title="New Password" onChange={setPassword}/>
           <InputField required="false"
@@ -75,6 +74,7 @@ function ProfileForm() {
             onChange={setAddress}
             type="text"
           />
+          <input type="checkbox" name="" id="" value={changeLocation} onChange={setChangeLocation} /> <label htmlFor="">Should also  change location.</label>
         </div>
 
         <button type="submit" className="w-full">

@@ -1,4 +1,4 @@
-const updateUser = async (fullName, phone,password, address) => {
+const updateUser = async (phone, password, address, changeLocation) => {
   const getCoordinates = async () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -9,9 +9,11 @@ const updateUser = async (fullName, phone,password, address) => {
     });
   };
 
-  const coordinates = await getCoordinates();
+  let coordinates = undefined ;
+  if (changeLocation === true) {
+    coordinates = await getCoordinates();
+  }
   const profileData = {
-    fullName: fullName,
     phone: phone,
     password: password,
     coordinates: coordinates,
